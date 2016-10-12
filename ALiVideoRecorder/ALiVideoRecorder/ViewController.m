@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ALiVideoRecorder.h"
+#import "Masonry.h"
 
 
 @interface ViewController () <ALiVideoRecordDelegate>
@@ -22,7 +23,7 @@
 
 #pragma mark - Custom Method
 //开始和暂停录制事件
-- (IBAction)recordAction:(UIButton *)sender {
+- (void)recordAction:(UIButton *)sender {
 
     self.recordBtn.selected = !self.recordBtn.selected;
     if (self.recordBtn.selected) {
@@ -32,27 +33,18 @@
             [self.recorder startRecording];
         }
     }else {
-        [self.recorder pauseRecording];
-    }
-}
-
-- (void)stopRecordingHandler
-{
-    if (self.recorder.videoPath.length > 0) {
-
         [self.recorder stopRecordingCompletion:^(UIImage *movieImage) {
-//            weakSelf.playerVC = [[MPMoviePlayerViewController alloc] initWithContentURL:[NSURL fileURLWithPath:weakSelf.recordEngine.videoPath]];
-//            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playVideoFinished:) name:MPMoviePlayerPlaybackDidFinishNotification object:[weakSelf.playerVC moviePlayer]];
-//            [[weakSelf.playerVC moviePlayer] prepareToPlay];
-//            
-//            [weakSelf presentMoviePlayerViewControllerAnimated:weakSelf.playerVC];
-//            [[weakSelf.playerVC moviePlayer] play];
             NSLog(@"%@",self.recorder.videoPath);
+            CGFloat duration = [self.recorder getVideoLength:[NSURL URLWithString:self.recorder.videoPath]];
+            CGFloat videoSize = [self.recorder getFileSize:self.recorder.videoPath];
+            NSLog(@"%f-----%f",duration,videoSize);
         }];
-    }else {
-        NSLog(@"请先录制视频~");
+        
+        //获取视频时长
+
     }
 }
+
 
 
 #pragma mark - Life Cycle
@@ -60,6 +52,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [self.recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).offset(-15);
+        make.width.height.equalTo(@80);
+        make.centerX.equalTo(self.view.mas_centerX);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -97,7 +95,7 @@
 
 - (void)recordProgress:(CGFloat)progress
 {
-    NSLog(@"%f",progress);
+    NSLog(@"%f",progress * self.recorder.maxVideoDuration);
 }
 
 #pragma mark - Lazy Load
@@ -118,7 +116,8 @@
 {
     if (_recordBtn == nil) {
         _recordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_recordBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [_recordBtn setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+        [_recordBtn addTarget:self action:@selector(recordAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_recordBtn];
     }
     return _recordBtn;

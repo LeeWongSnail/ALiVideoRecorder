@@ -175,6 +175,45 @@
     }
 }
 
+- (void)changeMovToMp4:(NSURL *)mediaURL dataBlock:(void (^)(UIImage *movieImage))handler {
+    AVAsset *video = [AVAsset assetWithURL:mediaURL];
+    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:video presetName:AVAssetExportPreset1280x720];
+    exportSession.shouldOptimizeForNetworkUse = YES;
+    exportSession.outputFileType = AVFileTypeMPEG4;
+    NSString * basePath=[self getVideoCachePath];
+    
+    self.videoPath = [basePath stringByAppendingPathComponent:[self getUploadFile_type:@"video" fileType:@"mp4"]];
+    exportSession.outputURL = [NSURL fileURLWithPath:self.videoPath];
+    [exportSession exportAsynchronouslyWithCompletionHandler:^{
+        [self movieToImageHandler:handler];
+    }];
+}
+
+- (CGFloat)getVideoLength:(NSURL *)URL
+{
+    NSDictionary *opts = [NSDictionary dictionaryWithObject:[NSNumber numberWithBool:NO]
+                                                     forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
+    AVURLAsset *urlAsset = [AVURLAsset URLAssetWithURL:URL options:opts];
+    float second = 0;
+    second = urlAsset.duration.value/urlAsset.duration.timescale;
+    return second;
+}
+
+- (CGFloat)getFileSize:(NSString *)path
+{
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    float filesize = -1.0;
+    if ([fileManager fileExistsAtPath:path]) {
+        NSDictionary *fileDic = [fileManager attributesOfItemAtPath:path error:nil];//获取文件的属性
+        unsigned long long size = [[fileDic objectForKey:NSFileSize] longLongValue];
+        filesize = 1.0*size/1024;
+    }
+    return filesize;
+}
+
+
+#pragma mark - Life Cycle
+
 - (instancetype)init
 {
     if (self = [super init]) {
@@ -211,19 +250,7 @@
     [self.previewLayer addAnimation:changeAnimation forKey:@"changeAnimation"];
 }
 
-- (void)changeMovToMp4:(NSURL *)mediaURL dataBlock:(void (^)(UIImage *movieImage))handler {
-    AVAsset *video = [AVAsset assetWithURL:mediaURL];
-    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:video presetName:AVAssetExportPreset1280x720];
-    exportSession.shouldOptimizeForNetworkUse = YES;
-    exportSession.outputFileType = AVFileTypeMPEG4;
-    NSString * basePath=[self getVideoCachePath];
-    
-    self.videoPath = [basePath stringByAppendingPathComponent:[self getUploadFile_type:@"video" fileType:@"mp4"]];
-    exportSession.outputURL = [NSURL fileURLWithPath:self.videoPath];
-    [exportSession exportAsynchronouslyWithCompletionHandler:^{
-        [self movieToImageHandler:handler];
-    }];
-}
+
 
 //获取视频第一帧的图片
 - (void)movieToImageHandler:(void (^)(UIImage *movieImage))handler {
@@ -250,7 +277,8 @@
 
 //获得视频存放地址
 - (NSString *)getVideoCachePath {
-    NSString *videoCache = [NSTemporaryDirectory() stringByAppendingPathComponent:@"videos"] ;
+    NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *videoCache = [docPath stringByAppendingPathComponent:@"videos"] ;
     BOOL isDir = NO;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL existed = [fileManager fileExistsAtPath:videoCache isDirectory:&isDir];

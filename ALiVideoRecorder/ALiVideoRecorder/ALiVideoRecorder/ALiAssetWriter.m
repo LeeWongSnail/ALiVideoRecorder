@@ -56,7 +56,14 @@
                               AVVideoCodecH264, AVVideoCodecKey,
                               [NSNumber numberWithInteger: cx], AVVideoWidthKey,
                               [NSNumber numberWithInteger: cy], AVVideoHeightKey,
+                              @{AVVideoCompressionPropertiesKey:@{}}, AVVideoCompressionPropertiesKey
                               nil];
+    NSDictionary *videoCompressionSettings = @{AVVideoCodecKey  : AVVideoCodecH264,
+                                               AVVideoWidthKey  : [NSNumber numberWithInteger:dimensions.width],
+                                               AVVideoHeightKey : [NSNumber numberWithInteger:dimensions.height],
+                                               AVVideoCompressionPropertiesKey:@{AVVideoAverageBitRateKey:[NSNumber numberWithInteger:cx*cy*7.5],
+                                                                                 AVVideoMaxKeyFrameIntervalKey:[NSNumber numberWithInteger:30]}
+                                               };
     //初始化视频写入类
     _videoInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:settings];
     //表明输入是否应该调整其处理为实时数据源的数据
