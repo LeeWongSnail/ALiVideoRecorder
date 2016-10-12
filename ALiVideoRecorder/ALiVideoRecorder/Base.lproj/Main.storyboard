@@ -6,10 +6,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Portait Recorder View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PortaitRecorderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -23,7 +23,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1599" y="-115"/>
+        </scene>
+        <!--Land Scape View Controller-->
+        <scene sceneID="V7R-35-oPG">
+            <objects>
+                <viewController id="qeV-1l-wUv" customClass="LandScapeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ygb-ay-9Ya"/>
+                        <viewControllerLayoutGuide type="bottom" id="cMu-Kk-QMf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WVh-XK-5pd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kbb-Xo-HP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1585" y="600"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HR0-y4-O8p">
@@ -36,12 +54,51 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="MO0-hq-S8s"/>
+                        <segue destination="QOL-vl-jKW" kind="relationship" relationship="rootViewController" id="l8Y-of-VHu"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eq8-Zs-DqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="776.76161919040487"/>
+            <point key="canvasLocation" x="-39" y="262"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="5Sb-H9-lDY">
+            <objects>
+                <viewController id="QOL-vl-jKW" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hit-Zr-1PV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eay-Lb-4vk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dgz-x3-QYj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-ai-uHP">
+                                <state key="normal" title="竖屏录制"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="7c5-YI-7oC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1J-Tp-Bpm">
+                                <state key="normal" title="横屏录制"/>
+                                <connections>
+                                    <segue destination="qeV-1l-wUv" kind="show" id="vKZ-W6-DgL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nzf-ai-uHP" firstAttribute="top" secondItem="hit-Zr-1PV" secondAttribute="bottom" constant="142" id="GxC-aq-7hz"/>
+                            <constraint firstItem="B1J-Tp-Bpm" firstAttribute="leading" secondItem="nzf-ai-uHP" secondAttribute="leading" id="LdD-sY-xGh"/>
+                            <constraint firstItem="nzf-ai-uHP" firstAttribute="centerX" secondItem="Dgz-x3-QYj" secondAttribute="centerX" id="evh-MO-Px8"/>
+                            <constraint firstItem="B1J-Tp-Bpm" firstAttribute="top" secondItem="nzf-ai-uHP" secondAttribute="bottom" constant="56" id="hNm-lK-5dY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8wz-pL-KFD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ht-TP-r9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="854" y="-87"/>
         </scene>
     </scenes>
 </document>
