@@ -15,6 +15,8 @@
 		EB092A321DADE84900E59F49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB092A301DADE84900E59F49 /* LaunchScreen.storyboard */; };
 		EB092A3D1DADE84900E59F49 /* ALiVideoRecorderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A3C1DADE84900E59F49 /* ALiVideoRecorderTests.m */; };
 		EB092A481DADE84900E59F49 /* ALiVideoRecorderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A471DADE84900E59F49 /* ALiVideoRecorderUITests.m */; };
+		EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */; };
+		EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		EB092A431DADE84900E59F49 /* ALiVideoRecorderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALiVideoRecorderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB092A471DADE84900E59F49 /* ALiVideoRecorderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALiVideoRecorderUITests.m; sourceTree = "<group>"; };
 		EB092A491DADE84900E59F49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB092A561DADE8F700E59F49 /* ALiAssetWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiAssetWriter.h; sourceTree = "<group>"; };
+		EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiAssetWriter.m; sourceTree = "<group>"; };
+		EB092A591DADE91A00E59F49 /* ALiVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiVideoRecorder.h; sourceTree = "<group>"; };
+		EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiVideoRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,7 @@
 		EB092A211DADE84900E59F49 /* ALiVideoRecorder */ = {
 			isa = PBXGroup;
 			children = (
+				EB092A551DADE88C00E59F49 /* ALiVideoRecorder */,
 				EB092A251DADE84900E59F49 /* AppDelegate.h */,
 				EB092A261DADE84900E59F49 /* AppDelegate.m */,
 				EB092A281DADE84900E59F49 /* ViewController.h */,
@@ -138,6 +145,17 @@
 				EB092A491DADE84900E59F49 /* Info.plist */,
 			);
 			path = ALiVideoRecorderUITests;
+			sourceTree = "<group>";
+		};
+		EB092A551DADE88C00E59F49 /* ALiVideoRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				EB092A561DADE8F700E59F49 /* ALiAssetWriter.h */,
+				EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */,
+				EB092A591DADE91A00E59F49 /* ALiVideoRecorder.h */,
+				EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */,
+			);
+			path = ALiVideoRecorder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +296,8 @@
 			files = (
 				EB092A2A1DADE84900E59F49 /* ViewController.m in Sources */,
 				EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */,
+				EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */,
+				EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */,
 				EB092A241DADE84900E59F49 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
