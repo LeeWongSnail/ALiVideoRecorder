@@ -38,6 +38,7 @@
 
 //录制写入
 @property (nonatomic, strong) ALiAssetWriter *assetWriter;
+@property (nonatomic, strong) NSString *videoPath;
 
 //录制状态
 @property (atomic, assign) BOOL isCapturing;//正在录制
@@ -67,9 +68,9 @@
     if (_recordSession) {
         [_recordSession stopRunning];
     }
-//    [self.assetWriter finishWithCompletionHandler:^{
-//        //        NSLog(@"录制完成");
-//    }];
+    [self.assetWriter finishWithCompletionHandler:^{
+        //        NSLog(@"录制完成");
+    }];
 }
 
 //开始录制
@@ -208,6 +209,20 @@
     changeAnimation.subtype = kCATransitionFromRight;
     changeAnimation.timingFunction = UIViewAnimationCurveEaseInOut;
     [self.previewLayer addAnimation:changeAnimation forKey:@"changeAnimation"];
+}
+
+- (void)changeMovToMp4:(NSURL *)mediaURL dataBlock:(void (^)(UIImage *movieImage))handler {
+    AVAsset *video = [AVAsset assetWithURL:mediaURL];
+    AVAssetExportSession *exportSession = [AVAssetExportSession exportSessionWithAsset:video presetName:AVAssetExportPreset1280x720];
+    exportSession.shouldOptimizeForNetworkUse = YES;
+    exportSession.outputFileType = AVFileTypeMPEG4;
+    NSString * basePath=[self getVideoCachePath];
+    
+    self.videoPath = [basePath stringByAppendingPathComponent:[self getUploadFile_type:@"video" fileType:@"mp4"]];
+    exportSession.outputURL = [NSURL fileURLWithPath:self.videoPath];
+    [exportSession exportAsynchronouslyWithCompletionHandler:^{
+        [self movieToImageHandler:handler];
+    }];
 }
 
 //获取视频第一帧的图片

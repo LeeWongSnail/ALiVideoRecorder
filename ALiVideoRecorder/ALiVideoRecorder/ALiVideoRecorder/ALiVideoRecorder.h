@@ -17,27 +17,29 @@
 @end
 
 @interface ALiVideoRecorder : NSObject
-
-@property (atomic, strong) NSString *videoPath;//视频路径
-
 @property (nonatomic, assign) NSInteger maxVideoDuration;   //最长视频时长
+
+//状态输出
+@property (atomic, assign, readonly) BOOL isCapturing;//正在录制
+@property (atomic, assign, readonly) BOOL isPaused;//是否暂停
+@property (nonatomic, strong ,readonly) NSString *videoPath;//视频路径
 
 @property (nonatomic, weak) id <ALiVideoRecordDelegate> delegate;
 
 //捕获到的视频呈现的layer
 - (AVCaptureVideoPreviewLayer *)previewLayer;
 //启动录制功能
-- (void)startUp;
+- (void)openPreview;
 //关闭录制功能
-- (void)shutdown;
+- (void)closePreview;
 //开始录制
-- (void) startCapture;
+- (void)startRecording;
 //暂停录制
-- (void) pauseCapture;
+- (void)pauseRecording;
 //停止录制
-- (void) stopCaptureHandler:(void (^)(UIImage *movieImage))handler;
+- (void)stopRecordingCompletion:(void (^)(UIImage *movieImage))handler;
 //继续录制
-- (void) resumeCapture;
+- (void)resumeRecording;
 //开启闪光灯
 - (void)openFlashLight;
 //关闭闪光灯
