@@ -39,8 +39,6 @@
             CGFloat videoSize = [self.recorder getFileSize:self.recorder.videoPath];
             NSLog(@"%f-----%f",duration,videoSize);
         }];
-        
-        //获取视频时长
 
     }
 }

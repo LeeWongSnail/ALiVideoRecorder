@@ -54,7 +54,7 @@
     //录制视频的一些配置，分辨率，编码方式等等
     
     //调整视频写入时的压缩比率
-//    NSDictionary *compressConfig =  @{AVVideoAverageBitRateKey:[NSNumber numberWithInteger:cx*cy*7.5],AVVideoProfileLevelKey:AVVideoProfileLevelH264BaselineAutoLevel,AVVideoMaxKeyFrameIntervalKey:[NSNumber numberWithInteger:30]};
+//    NSDictionary *compressConfig =  @{AVVideoAverageBitRateKey:[NSNumber numberWithInteger:cx*cy],AVVideoProfileLevelKey:AVVideoProfileLevelH264BaselineAutoLevel,AVVideoMaxKeyFrameIntervalKey:[NSNumber numberWithInteger:10]};
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys:
                               AVVideoCodecH264, AVVideoCodecKey,
