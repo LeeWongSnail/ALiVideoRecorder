@@ -38,15 +38,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qYb-N1-5cW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbb-Xo-HP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1585" y="600"/>
+            <point key="canvasLocation" x="2615.1999999999998" y="587.85607196401804"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Li Navigation View Controller-->
         <scene sceneID="HR0-y4-O8p">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DaT-RC-C6x" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DaT-RC-C6x" customClass="ALiNavigationViewController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="RIo-ca-lL9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -76,13 +77,13 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-ai-uHP">
                                 <state key="normal" title="竖屏录制"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="7c5-YI-7oC"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="7c5-YI-7oC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1J-Tp-Bpm">
                                 <state key="normal" title="横屏录制"/>
                                 <connections>
-                                    <segue destination="qeV-1l-wUv" kind="show" id="vKZ-W6-DgL"/>
+                                    <segue destination="3AZ-Kz-VGZ" kind="presentation" id="vKZ-W6-DgL"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,6 +100,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ht-TP-r9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="854" y="-87"/>
+        </scene>
+        <!--Li Navigation View Controller-->
+        <scene sceneID="ZWC-MI-2cN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3AZ-Kz-VGZ" customClass="ALiNavigationViewController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="cTw-fv-Gep">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qeV-1l-wUv" kind="relationship" relationship="rootViewController" id="QQn-f2-Z3y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j4t-1u-hgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1676" y="587.85607196401804"/>
         </scene>
     </scenes>
 </document>

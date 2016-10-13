@@ -1,0 +1,18 @@
+//
+//  ALiVideoRecorder-Prefix.pch
+//  ALiVideoRecorder
+//
+//  Created by LeeWong on 2016/10/13.
+//  Copyright © 2016年 LeeWong. All rights reserved.
+//
+
+#ifndef ALiVideoRecorder_Prefix_h
+#define ALiVideoRecorder_Prefix_h
+
+
+#import "Masonry.h"
+
+#define WEAKSELF(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+
+#endif /* ALiVideoRecorder_Prefix_h */

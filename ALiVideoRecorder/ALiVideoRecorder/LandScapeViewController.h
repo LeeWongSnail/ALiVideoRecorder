@@ -6,8 +6,8 @@
 //  Copyright © 2016年 LeeWong. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ALiViewController.h"
 
-@interface LandScapeViewController : UIViewController
+@interface LandScapeViewController : ALiViewController
 
 @end

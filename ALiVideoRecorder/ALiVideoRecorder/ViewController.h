@@ -6,9 +6,9 @@
 //  Copyright © 2016年 LeeWong. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ALiViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : ALiViewController
 
 
 @end

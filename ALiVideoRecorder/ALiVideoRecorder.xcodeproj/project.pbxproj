@@ -20,6 +20,9 @@
 		EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */; };
 		EB3F5C951DAE66910026673D /* PortaitRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5C941DAE66910026673D /* PortaitRecorderViewController.m */; };
 		EB3F5C981DAE669F0026673D /* LandScapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5C971DAE669F0026673D /* LandScapeViewController.m */; };
+		EB3F5CAF1DAF31440026673D /* ArtAdviseOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CAE1DAF31440026673D /* ArtAdviseOperationView.m */; };
+		EB3F5CB31DAF397E0026673D /* ALiNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CB21DAF397E0026673D /* ALiNavigationViewController.m */; };
+		EB3F5CB61DAF39F80026673D /* ALiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CB51DAF39F80026673D /* ALiViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,13 @@
 		EB3F5C941DAE66910026673D /* PortaitRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortaitRecorderViewController.m; sourceTree = "<group>"; };
 		EB3F5C961DAE669F0026673D /* LandScapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapeViewController.h; sourceTree = "<group>"; };
 		EB3F5C971DAE669F0026673D /* LandScapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandScapeViewController.m; sourceTree = "<group>"; };
+		EB3F5CAD1DAF31440026673D /* ArtAdviseOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtAdviseOperationView.h; sourceTree = "<group>"; };
+		EB3F5CAE1DAF31440026673D /* ArtAdviseOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtAdviseOperationView.m; sourceTree = "<group>"; };
+		EB3F5CB01DAF31F60026673D /* ALiVideoRecorder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALiVideoRecorder-Prefix.pch"; sourceTree = "<group>"; };
+		EB3F5CB11DAF397E0026673D /* ALiNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiNavigationViewController.h; sourceTree = "<group>"; };
+		EB3F5CB21DAF397E0026673D /* ALiNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiNavigationViewController.m; sourceTree = "<group>"; };
+		EB3F5CB41DAF39F80026673D /* ALiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiViewController.h; sourceTree = "<group>"; };
+		EB3F5CB51DAF39F80026673D /* ALiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +156,13 @@
 				EB3F5C941DAE66910026673D /* PortaitRecorderViewController.m */,
 				EB3F5C961DAE669F0026673D /* LandScapeViewController.h */,
 				EB3F5C971DAE669F0026673D /* LandScapeViewController.m */,
+				EB3F5CAD1DAF31440026673D /* ArtAdviseOperationView.h */,
+				EB3F5CAE1DAF31440026673D /* ArtAdviseOperationView.m */,
 				EB092A2B1DADE84900E59F49 /* Main.storyboard */,
+				EB3F5CB11DAF397E0026673D /* ALiNavigationViewController.h */,
+				EB3F5CB21DAF397E0026673D /* ALiNavigationViewController.m */,
+				EB3F5CB41DAF39F80026673D /* ALiViewController.h */,
+				EB3F5CB51DAF39F80026673D /* ALiViewController.m */,
 				EB092A2E1DADE84900E59F49 /* Assets.xcassets */,
 				EB092A301DADE84900E59F49 /* LaunchScreen.storyboard */,
 				EB092A331DADE84900E59F49 /* Info.plist */,
@@ -159,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				EB092A231DADE84900E59F49 /* main.m */,
+				EB3F5CB01DAF31F60026673D /* ALiVideoRecorder-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -381,10 +398,13 @@
 			files = (
 				EB092A2A1DADE84900E59F49 /* ViewController.m in Sources */,
 				EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */,
+				EB3F5CAF1DAF31440026673D /* ArtAdviseOperationView.m in Sources */,
+				EB3F5CB61DAF39F80026673D /* ALiViewController.m in Sources */,
 				EB3F5C981DAE669F0026673D /* LandScapeViewController.m in Sources */,
 				EB3F5C951DAE66910026673D /* PortaitRecorderViewController.m in Sources */,
 				EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */,
 				EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */,
+				EB3F5CB31DAF397E0026673D /* ALiNavigationViewController.m in Sources */,
 				EB092A241DADE84900E59F49 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,6 +554,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XWNPFKK4U5;
+				GCC_PREFIX_HEADER = "ALiVideoRecorder/ALiVideoRecorder-Prefix.pch";
 				INFOPLIST_FILE = ALiVideoRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msb.ALiVideoRecorder;
@@ -547,6 +568,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XWNPFKK4U5;
+				GCC_PREFIX_HEADER = "ALiVideoRecorder/ALiVideoRecorder-Prefix.pch";
 				INFOPLIST_FILE = ALiVideoRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.msb.ALiVideoRecorder;
