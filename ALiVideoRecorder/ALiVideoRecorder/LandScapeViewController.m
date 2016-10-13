@@ -33,6 +33,10 @@
 
 @implementation LandScapeViewController
 
+- (void)back
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 //开始和暂停录制事件
 - (void)recordAction:(UIButton *)sender {
@@ -239,7 +243,7 @@
     if (_backBtn == nil) {
         _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_backBtn setImage:[UIImage imageNamed:@"common_back_white"] forState:UIControlStateNormal];
-        [_backBtn addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+        [_backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_backBtn];
     }
     return _backBtn;
