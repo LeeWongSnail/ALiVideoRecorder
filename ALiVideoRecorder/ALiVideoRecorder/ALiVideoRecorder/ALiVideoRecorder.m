@@ -46,6 +46,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 @property (atomic, assign) BOOL isCapturing;//正在录制
 @property (atomic, assign) BOOL isPaused;//是否暂停
 @property (atomic, assign) BOOL isDiscount;//是否中断
+@property (nonatomic, assign) BOOL isFront;
 @property (atomic, assign) CMTime startTime;//开始录制的时间
 @property (atomic, assign) CGFloat currentRecordTime;//当前录制时间
 
@@ -60,6 +61,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     self.isCapturing = NO;
     self.isPaused = NO;
     self.isDiscount = NO;
+    self.isFront = NO;
     [self.recordSession startRunning];
 }
 
@@ -138,14 +140,15 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 }
 
 //切换前后置摄像头
-- (void)changeCameraInputDeviceisFront:(BOOL)isFront {
-    if (isFront) {
+- (void)switchCamera{
+    if (!self.isFront) {
         [self.recordSession stopRunning];
         [self.recordSession removeInput:self.backCameraInput];
         if ([self.recordSession canAddInput:self.frontCameraInput]) {
             [self changeCameraAnimation];
             [self.recordSession addInput:self.frontCameraInput];
         }
+        self.isFront = YES;
     }else {
         [self.recordSession stopRunning];
         [self.recordSession removeInput:self.frontCameraInput];
@@ -153,29 +156,26 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             [self changeCameraAnimation];
             [self.recordSession addInput:self.backCameraInput];
         }
+        self.isFront = NO;
     }
 }
 
 //开启闪光灯
-- (void)openFlashLight {
+- (void)switchFlashLight {
     AVCaptureDevice *backCamera = [self backCamera];
     if (backCamera.torchMode == AVCaptureTorchModeOff) {
         [backCamera lockForConfiguration:nil];
         backCamera.torchMode = AVCaptureTorchModeOn;
         backCamera.flashMode = AVCaptureFlashModeOn;
         [backCamera unlockForConfiguration];
-    }
-}
-//关闭闪光灯
-- (void)closeFlashLight {
-    AVCaptureDevice *backCamera = [self backCamera];
-    if (backCamera.torchMode == AVCaptureTorchModeOn) {
+    } else {
         [backCamera lockForConfiguration:nil];
         backCamera.torchMode = AVCaptureTorchModeOff;
         backCamera.flashMode = AVCaptureTorchModeOff;
         [backCamera unlockForConfiguration];
     }
 }
+
 
 - (void)changeMovToMp4:(NSURL *)mediaURL dataBlock:(void (^)(UIImage *movieImage))handler {
     AVAsset *video = [AVAsset assetWithURL:mediaURL];

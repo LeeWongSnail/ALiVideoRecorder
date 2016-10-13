@@ -8,19 +8,23 @@
 
 #import "PortaitRecorderViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 #import "ALiVideoRecorder.h"
+#import "ALiBottomToolView.h"
+#import "ALiTopToolView.h"
 
-@interface PortaitRecorderViewController () <ALiVideoRecordDelegate>
+@interface PortaitRecorderViewController () <ALiVideoRecordDelegate,ALiTopToolViewDelegate,ALiBottomToolViewDelegate>
 
 @property (nonatomic, strong) ALiVideoRecorder *recorder;
 
-@property (nonatomic, strong) UIButton *recordBtn;
+@property (nonatomic, strong) ALiTopToolView *topTipView;
 
-@property (nonatomic, strong) UILabel *timeLabel;
+@property (nonatomic, strong) ALiBottomToolView *bottomTipView;
 
-@property (nonatomic, strong) UIButton *backBtn;
+@property (nonatomic, strong) UIVisualEffectView *recordView;
 
-@property (nonatomic, strong) MPMoviePlayerController *moviePlayer;
+@property (nonatomic, strong) AVPlayer *player;
 
 @end
 
@@ -31,21 +35,22 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 //开始和暂停录制事件
-- (void)recordAction:(UIButton *)sender {
+- (void)recordAction {
     
-    self.recordBtn.selected = !self.recordBtn.selected;
-    if (self.recordBtn.selected) {
-        if (self.recorder.isCapturing) {
-            [self.recorder resumeRecording];
-        }else {
-            [self.recorder startRecording];
-        }
+    if (!self.recorder.isCapturing) {
+        [self.recorder startRecording];
     }else {
         [self.recorder stopRecordingCompletion:^(UIImage *movieImage) {
             NSLog(@"%@",self.recorder.videoPath);
             CGFloat duration = [self.recorder getVideoLength:[NSURL URLWithString:self.recorder.videoPath]];
             CGFloat videoSize = [self.recorder getFileSize:self.recorder.videoPath];
             NSLog(@"%f-----%f",duration,videoSize);
+            WEAKSELF(weakSelf);
+            [self.recorder movieToImageHandler:^(UIImage *movieImage) {
+                [weakSelf.bottomTipView configVideoThumb:movieImage];
+            }];
+            
+            self.bottomTipView.lastVideoPath = self.recorder.videoPath;
         }];
         
     }
@@ -63,6 +68,26 @@
     [self.recorder setFocusCursorWithPoint:point];
 }
 
+- (void)playLastVideo
+{
+    AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:[NSURL fileURLWithPath:self.bottomTipView.lastVideoPath]];
+    //初始化player对象
+    self.player = [[AVPlayer alloc] initWithPlayerItem:item];
+    //设置播放页面
+    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:_player];
+    //设置播放页面的大小
+    layer.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    layer.backgroundColor = [UIColor purpleColor].CGColor;
+    //设置播放窗口和当前视图之间的比例显示内容
+    layer.videoGravity = AVLayerVideoGravityResizeAspect;
+    //添加播放视图到self.view
+    [self.view.layer addSublayer:layer];
+    //设置播放的默认音量值
+    self.player.volume = 1.0f;
+    
+    [self.player play];
+}
+
 
 #pragma mark - Life Cycle
 
@@ -70,21 +95,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [self.recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom).offset(-15);
-        make.width.height.equalTo(@80);
-        make.centerX.equalTo(self.view.mas_centerX);
+    [self.recordView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.equalTo(@80);
     }];
     
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.recordBtn);
-        make.bottom.equalTo(self.recordBtn.mas_top).offset(-15);
+    [self.bottomTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.left.right.equalTo(self.view);
+        make.height.equalTo(@100);
     }];
+
     
-    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@50);
-        make.top.equalTo(self.view.mas_top).offset(30);
-        make.left.equalTo(self.view.mas_left);
+    [self.topTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.left.right.equalTo(self.view);
+        make.height.equalTo(@64);
     }];
     
     
@@ -115,6 +139,10 @@
     [self.recorder closePreview];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -127,12 +155,42 @@
 - (void)recordProgress:(CGFloat)progress
 {
     NSLog(@"%f",progress * self.recorder.maxVideoDuration);
-    
-    NSInteger time = ceil(progress * self.recorder.maxVideoDuration);
-    NSInteger second = time%60;
-    NSInteger minute = time/60;
-    
-    self.timeLabel.text = [NSString stringWithFormat:@"%02ld : %02ld",minute,second];
+    [self.bottomTipView configTimeLabel:progress * self.recorder.maxVideoDuration];
+}
+
+#pragma mark - ALiTopToolViewDelegate
+
+- (void)tipViewActionHandler:(EALiTopTipActionType)aType
+{
+    switch (aType) {
+        case EALiTipActionTypeClose:
+            [self back];
+            break;
+        case EALiTipActionTypeFlash:
+            [self.recorder switchFlashLight];
+            break;
+        case EALiTipActionTypeSwitchCamera:
+            [self.recorder switchCamera];
+            break;
+        default:
+            break;
+    }
+}
+
+#pragma mark - ALiBottomToolViewDelegate
+
+- (void)bottomTipViewActionHandler:(EALiTipActionType)aType
+{
+    switch (aType) {
+        case EALiTipActionTypeRecord:
+            [self recordAction];
+            break;
+        case EALiTipActionTypePlay:
+            [self playLastVideo];
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Lazy Load
@@ -149,49 +207,35 @@
     return _recorder;
 }
 
-- (UIButton *)recordBtn
+- (ALiTopToolView *)topTipView
 {
-    if (_recordBtn == nil) {
-        _recordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_recordBtn setImage:[UIImage imageNamed:@"editor_video_start_normal"] forState:UIControlStateNormal];
-        [_recordBtn setImage:[UIImage imageNamed:@"editor_video_start_selected"] forState:UIControlStateSelected];
-        [_recordBtn addTarget:self action:@selector(recordAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_recordBtn];
+    if (_topTipView == nil) {
+        _topTipView = [[ALiTopToolView alloc] init];
+        _topTipView.delegate = self;
+        [self.view addSubview:_topTipView];
     }
-    return _recordBtn;
+    return _topTipView;
 }
 
-- (UILabel *)timeLabel
+- (ALiBottomToolView *)bottomTipView
 {
-    if (_timeLabel == nil) {
-        _timeLabel = [[UILabel alloc] init];
-        _timeLabel.textColor = [UIColor whiteColor];
-        _timeLabel.backgroundColor = [UIColor blackColor];
-        _timeLabel.layer.cornerRadius = 5;
-        [self.view addSubview:_timeLabel];
+    if (_bottomTipView == nil) {
+        _bottomTipView = [[ALiBottomToolView alloc] init];
+        _bottomTipView.delegate = self;
+        [self.view addSubview:_bottomTipView];
     }
-    return _timeLabel;
+    return _bottomTipView;
 }
 
-- (UIButton *)backBtn
-{
-    if (_backBtn == nil) {
-        _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_backBtn setImage:[UIImage imageNamed:@"common_back_white"] forState:UIControlStateNormal];
-        [_backBtn addTarget:self action:@selector(back) forControlEvents:UIControlEventTouchUpInside];
-        [self.view addSubview:_backBtn];
-    }
-    return _backBtn;
-}
 
-//- (MPMoviePlayerController *)moviePlayer
-//{
-//    if (_moviePlayer == nil) {
-//        _moviePlayer = [[MPMoviePlayerController alloc] init];
-//        _moviePlayer.shouldAutoplay = YES;
-//        [self.view addSubview:_moviePlayer.view];
-//    }
-//    return _moviePlayer;
-//}
+- (UIView *)recordView
+{
+    if (_recordView == nil) {
+        UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        _recordView = [[UIVisualEffectView alloc] initWithEffect:effect];
+        [self.view addSubview:_recordView];
+    }
+    return _recordView;
+}
 
 @end
