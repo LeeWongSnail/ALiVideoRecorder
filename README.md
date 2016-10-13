@@ -17,7 +17,8 @@
 
 #### 1、 功能目录
 
-![功能目录](https://i.niupic.com/images/2016/10/13/ecE1gl.jpg)
+![功能目录](https://i.niupic.com/images/2016/10/13/3hhrO9.png)
+
 
 #### 2、竖屏录制视频
 
