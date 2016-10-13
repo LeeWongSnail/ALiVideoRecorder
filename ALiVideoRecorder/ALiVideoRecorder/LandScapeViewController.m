@@ -7,6 +7,7 @@
 //
 
 #import "LandScapeViewController.h"
+#import <CoreMotion/CoreMotion.h>
 #import "ALiVideoRecorder.h"
 #import "Masonry.h"
 
@@ -14,6 +15,8 @@
 @interface LandScapeViewController ()<ALiVideoRecordDelegate>
 
 @property (nonatomic, strong) ALiVideoRecorder *recorder;
+
+@property (nonatomic, strong) CMMotionManager *motionManager;
 
 @property (nonatomic, strong) UIButton *recordBtn;
 

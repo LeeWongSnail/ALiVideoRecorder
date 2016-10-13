@@ -16,6 +16,10 @@
 
 @property (nonatomic, strong) UIButton *recordBtn;
 
+@property (nonatomic, strong) UILabel *timeLabel;
+
+@property (nonatomic, strong) UIButton *backBtn;
+
 @end
 
 @implementation PortaitRecorderViewController
@@ -42,6 +46,7 @@
 }
 
 
+
 #pragma mark - Life Cycle
 
 - (void)viewDidLoad {
@@ -53,6 +58,18 @@
         make.width.height.equalTo(@80);
         make.centerX.equalTo(self.view.mas_centerX);
     }];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.recordBtn);
+        make.bottom.equalTo(self.recordBtn.mas_top).offset(-15);
+    }];
+    
+    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@50);
+        make.top.equalTo(self.view.mas_top).offset(30);
+        make.left.equalTo(self.view.mas_left);
+    }];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -91,6 +108,12 @@
 - (void)recordProgress:(CGFloat)progress
 {
     NSLog(@"%f",progress * self.recorder.maxVideoDuration);
+    
+    NSInteger time = ceil(progress * self.recorder.maxVideoDuration);
+    NSInteger second = time%60;
+    NSInteger minute = time/60;
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%02ld : %02ld",minute,second];
 }
 
 #pragma mark - Lazy Load
@@ -111,11 +134,35 @@
 {
     if (_recordBtn == nil) {
         _recordBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_recordBtn setImage:[UIImage imageNamed:@"record"] forState:UIControlStateNormal];
+        [_recordBtn setImage:[UIImage imageNamed:@"editor_video_start_normal"] forState:UIControlStateNormal];
+        [_recordBtn setImage:[UIImage imageNamed:@"editor_video_start_selected"] forState:UIControlStateSelected];
         [_recordBtn addTarget:self action:@selector(recordAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_recordBtn];
     }
     return _recordBtn;
+}
+
+- (UILabel *)timeLabel
+{
+    if (_timeLabel == nil) {
+        _timeLabel = [[UILabel alloc] init];
+        _timeLabel.textColor = [UIColor whiteColor];
+        _timeLabel.backgroundColor = [UIColor blackColor];
+        _timeLabel.layer.cornerRadius = 5;
+        [self.view addSubview:_timeLabel];
+    }
+    return _timeLabel;
+}
+
+- (UIButton *)backBtn
+{
+    if (_backBtn == nil) {
+        _backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_backBtn setImage:[UIImage imageNamed:@"common_back_white"] forState:UIControlStateNormal];
+        [_backBtn addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_backBtn];
+    }
+    return _backBtn;
 }
 
 @end
