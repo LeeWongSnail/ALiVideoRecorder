@@ -40,6 +40,7 @@
     
     if (!self.recorder.isCapturing) {
         [self.recorder startRecording];
+        self.topTipView.hidden = YES;
     }else {
         [self.recorder stopRecordingCompletion:^(UIImage *movieImage) {
             NSLog(@"%@",self.recorder.videoPath);
@@ -52,6 +53,7 @@
             }];
             
             self.bottomTipView.lastVideoPath = self.recorder.videoPath;
+            self.topTipView.hidden = NO;
         }];
         
     }

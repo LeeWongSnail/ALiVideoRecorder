@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1J-Tp-Bpm">
-                                <state key="normal" title="横屏录制"/>
+                                <state key="normal" title="强制横屏录制"/>
                                 <connections>
                                     <segue destination="3AZ-Kz-VGZ" kind="presentation" id="vKZ-W6-DgL"/>
                                 </connections>
@@ -99,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ht-TP-r9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="-87"/>
+            <point key="canvasLocation" x="569" y="-188"/>
         </scene>
         <!--Li Navigation View Controller-->
         <scene sceneID="ZWC-MI-2cN">

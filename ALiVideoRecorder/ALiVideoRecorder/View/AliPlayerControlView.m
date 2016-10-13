@@ -62,7 +62,7 @@
 {
     if (_startBtn == nil) {
         _startBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        _startBtn.tag = 10000 + EALiPlayerActionTypeBack;
+        _startBtn.tag = 10000 + EALiPlayerActionTypePlay;
         [_startBtn addTarget:self action:@selector(eventHandler:) forControlEvents:UIControlEventTouchUpInside];
         [_startBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         [_startBtn setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
