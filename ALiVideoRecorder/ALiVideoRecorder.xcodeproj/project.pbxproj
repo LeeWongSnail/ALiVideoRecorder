@@ -10,7 +10,6 @@
 		510060CF833D10C079E2EFE0 /* libPods-ALiVideoRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E99070EF0BD08B0BBA800768 /* libPods-ALiVideoRecorder.a */; };
 		EB092A241DADE84900E59F49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A231DADE84900E59F49 /* main.m */; };
 		EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A261DADE84900E59F49 /* AppDelegate.m */; };
-		EB092A2A1DADE84900E59F49 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A291DADE84900E59F49 /* ViewController.m */; };
 		EB092A2D1DADE84900E59F49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB092A2B1DADE84900E59F49 /* Main.storyboard */; };
 		EB092A2F1DADE84900E59F49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB092A2E1DADE84900E59F49 /* Assets.xcassets */; };
 		EB092A321DADE84900E59F49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB092A301DADE84900E59F49 /* LaunchScreen.storyboard */; };
@@ -18,13 +17,16 @@
 		EB092A481DADE84900E59F49 /* ALiVideoRecorderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A471DADE84900E59F49 /* ALiVideoRecorderUITests.m */; };
 		EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */; };
 		EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */; };
-		EB3F5C951DAE66910026673D /* PortaitRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5C941DAE66910026673D /* PortaitRecorderViewController.m */; };
-		EB3F5C981DAE669F0026673D /* LandScapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5C971DAE669F0026673D /* LandScapeViewController.m */; };
-		EB3F5CAF1DAF31440026673D /* ArtAdviseOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CAE1DAF31440026673D /* ArtAdviseOperationView.m */; };
-		EB3F5CB31DAF397E0026673D /* ALiNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CB21DAF397E0026673D /* ALiNavigationViewController.m */; };
-		EB3F5CB61DAF39F80026673D /* ALiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CB51DAF39F80026673D /* ALiViewController.m */; };
-		EB3F5CB91DAF66E80026673D /* ALiTopToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CB81DAF66E80026673D /* ALiTopToolView.m */; };
-		EB3F5CBC1DAF72320026673D /* ALiBottomToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CBB1DAF72320026673D /* ALiBottomToolView.m */; };
+		EB3F5CDA1DAF90EF0026673D /* ALiNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CCF1DAF90EF0026673D /* ALiNavigationViewController.m */; };
+		EB3F5CDB1DAF90EF0026673D /* ALiPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD11DAF90EF0026673D /* ALiPlayViewController.m */; };
+		EB3F5CDC1DAF90EF0026673D /* ALiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD31DAF90EF0026673D /* ALiViewController.m */; };
+		EB3F5CDD1DAF90EF0026673D /* LandScapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD51DAF90EF0026673D /* LandScapeViewController.m */; };
+		EB3F5CDE1DAF90EF0026673D /* PortaitRecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD71DAF90EF0026673D /* PortaitRecorderViewController.m */; };
+		EB3F5CDF1DAF90EF0026673D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD91DAF90EF0026673D /* ViewController.m */; };
+		EB3F5CE91DAF90F50026673D /* ALiBottomToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CE21DAF90F50026673D /* ALiBottomToolView.m */; };
+		EB3F5CEA1DAF90F50026673D /* AliPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CE41DAF90F50026673D /* AliPlayerControlView.m */; };
+		EB3F5CEB1DAF90F50026673D /* ALiTopToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CE61DAF90F50026673D /* ALiTopToolView.m */; };
+		EB3F5CEC1DAF90F50026673D /* ArtAdviseOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CE81DAF90F50026673D /* ArtAdviseOperationView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +54,6 @@
 		EB092A231DADE84900E59F49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB092A251DADE84900E59F49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EB092A261DADE84900E59F49 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EB092A281DADE84900E59F49 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EB092A291DADE84900E59F49 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EB092A2C1DADE84900E59F49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EB092A2E1DADE84900E59F49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB092A311DADE84900E59F49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -68,21 +68,27 @@
 		EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiAssetWriter.m; sourceTree = "<group>"; };
 		EB092A591DADE91A00E59F49 /* ALiVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiVideoRecorder.h; sourceTree = "<group>"; };
 		EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiVideoRecorder.m; sourceTree = "<group>"; };
-		EB3F5C931DAE66910026673D /* PortaitRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortaitRecorderViewController.h; sourceTree = "<group>"; };
-		EB3F5C941DAE66910026673D /* PortaitRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortaitRecorderViewController.m; sourceTree = "<group>"; };
-		EB3F5C961DAE669F0026673D /* LandScapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapeViewController.h; sourceTree = "<group>"; };
-		EB3F5C971DAE669F0026673D /* LandScapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandScapeViewController.m; sourceTree = "<group>"; };
-		EB3F5CAD1DAF31440026673D /* ArtAdviseOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtAdviseOperationView.h; sourceTree = "<group>"; };
-		EB3F5CAE1DAF31440026673D /* ArtAdviseOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtAdviseOperationView.m; sourceTree = "<group>"; };
 		EB3F5CB01DAF31F60026673D /* ALiVideoRecorder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALiVideoRecorder-Prefix.pch"; sourceTree = "<group>"; };
-		EB3F5CB11DAF397E0026673D /* ALiNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiNavigationViewController.h; sourceTree = "<group>"; };
-		EB3F5CB21DAF397E0026673D /* ALiNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiNavigationViewController.m; sourceTree = "<group>"; };
-		EB3F5CB41DAF39F80026673D /* ALiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiViewController.h; sourceTree = "<group>"; };
-		EB3F5CB51DAF39F80026673D /* ALiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiViewController.m; sourceTree = "<group>"; };
-		EB3F5CB71DAF66E80026673D /* ALiTopToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiTopToolView.h; sourceTree = "<group>"; };
-		EB3F5CB81DAF66E80026673D /* ALiTopToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiTopToolView.m; sourceTree = "<group>"; };
-		EB3F5CBA1DAF72320026673D /* ALiBottomToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiBottomToolView.h; sourceTree = "<group>"; };
-		EB3F5CBB1DAF72320026673D /* ALiBottomToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiBottomToolView.m; sourceTree = "<group>"; };
+		EB3F5CCE1DAF90EF0026673D /* ALiNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiNavigationViewController.h; sourceTree = "<group>"; };
+		EB3F5CCF1DAF90EF0026673D /* ALiNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiNavigationViewController.m; sourceTree = "<group>"; };
+		EB3F5CD01DAF90EF0026673D /* ALiPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiPlayViewController.h; sourceTree = "<group>"; };
+		EB3F5CD11DAF90EF0026673D /* ALiPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiPlayViewController.m; sourceTree = "<group>"; };
+		EB3F5CD21DAF90EF0026673D /* ALiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiViewController.h; sourceTree = "<group>"; };
+		EB3F5CD31DAF90EF0026673D /* ALiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiViewController.m; sourceTree = "<group>"; };
+		EB3F5CD41DAF90EF0026673D /* LandScapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapeViewController.h; sourceTree = "<group>"; };
+		EB3F5CD51DAF90EF0026673D /* LandScapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandScapeViewController.m; sourceTree = "<group>"; };
+		EB3F5CD61DAF90EF0026673D /* PortaitRecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortaitRecorderViewController.h; sourceTree = "<group>"; };
+		EB3F5CD71DAF90EF0026673D /* PortaitRecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortaitRecorderViewController.m; sourceTree = "<group>"; };
+		EB3F5CD81DAF90EF0026673D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		EB3F5CD91DAF90EF0026673D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		EB3F5CE11DAF90F50026673D /* ALiBottomToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiBottomToolView.h; sourceTree = "<group>"; };
+		EB3F5CE21DAF90F50026673D /* ALiBottomToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiBottomToolView.m; sourceTree = "<group>"; };
+		EB3F5CE31DAF90F50026673D /* AliPlayerControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliPlayerControlView.h; sourceTree = "<group>"; };
+		EB3F5CE41DAF90F50026673D /* AliPlayerControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliPlayerControlView.m; sourceTree = "<group>"; };
+		EB3F5CE51DAF90F50026673D /* ALiTopToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiTopToolView.h; sourceTree = "<group>"; };
+		EB3F5CE61DAF90F50026673D /* ALiTopToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiTopToolView.m; sourceTree = "<group>"; };
+		EB3F5CE71DAF90F50026673D /* ArtAdviseOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtAdviseOperationView.h; sourceTree = "<group>"; };
+		EB3F5CE81DAF90F50026673D /* ArtAdviseOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtAdviseOperationView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,29 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				EB092A551DADE88C00E59F49 /* ALiVideoRecorder */,
+				EB3F5CE01DAF90F50026673D /* View */,
+				EB3F5CCD1DAF90EF0026673D /* ViewController */,
 				EB092A251DADE84900E59F49 /* AppDelegate.h */,
 				EB092A261DADE84900E59F49 /* AppDelegate.m */,
-				EB092A281DADE84900E59F49 /* ViewController.h */,
-				EB092A291DADE84900E59F49 /* ViewController.m */,
-				EB3F5C931DAE66910026673D /* PortaitRecorderViewController.h */,
-				EB3F5C941DAE66910026673D /* PortaitRecorderViewController.m */,
-				EB3F5C961DAE669F0026673D /* LandScapeViewController.h */,
-				EB3F5C971DAE669F0026673D /* LandScapeViewController.m */,
-				EB3F5CAD1DAF31440026673D /* ArtAdviseOperationView.h */,
-				EB3F5CAE1DAF31440026673D /* ArtAdviseOperationView.m */,
-				EB092A2B1DADE84900E59F49 /* Main.storyboard */,
-				EB3F5CB11DAF397E0026673D /* ALiNavigationViewController.h */,
-				EB3F5CB21DAF397E0026673D /* ALiNavigationViewController.m */,
-				EB3F5CB41DAF39F80026673D /* ALiViewController.h */,
-				EB3F5CB51DAF39F80026673D /* ALiViewController.m */,
-				EB092A2E1DADE84900E59F49 /* Assets.xcassets */,
-				EB092A301DADE84900E59F49 /* LaunchScreen.storyboard */,
-				EB092A331DADE84900E59F49 /* Info.plist */,
 				EB092A221DADE84900E59F49 /* Supporting Files */,
-				EB3F5CB71DAF66E80026673D /* ALiTopToolView.h */,
-				EB3F5CB81DAF66E80026673D /* ALiTopToolView.m */,
-				EB3F5CBA1DAF72320026673D /* ALiBottomToolView.h */,
-				EB3F5CBB1DAF72320026673D /* ALiBottomToolView.m */,
 			);
 			path = ALiVideoRecorder;
 			sourceTree = "<group>";
@@ -184,6 +172,10 @@
 		EB092A221DADE84900E59F49 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EB092A2E1DADE84900E59F49 /* Assets.xcassets */,
+				EB092A301DADE84900E59F49 /* LaunchScreen.storyboard */,
+				EB092A331DADE84900E59F49 /* Info.plist */,
+				EB092A2B1DADE84900E59F49 /* Main.storyboard */,
 				EB092A231DADE84900E59F49 /* main.m */,
 				EB3F5CB01DAF31F60026673D /* ALiVideoRecorder-Prefix.pch */,
 			);
@@ -217,6 +209,40 @@
 				EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */,
 			);
 			path = ALiVideoRecorder;
+			sourceTree = "<group>";
+		};
+		EB3F5CCD1DAF90EF0026673D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EB3F5CCE1DAF90EF0026673D /* ALiNavigationViewController.h */,
+				EB3F5CCF1DAF90EF0026673D /* ALiNavigationViewController.m */,
+				EB3F5CD01DAF90EF0026673D /* ALiPlayViewController.h */,
+				EB3F5CD11DAF90EF0026673D /* ALiPlayViewController.m */,
+				EB3F5CD21DAF90EF0026673D /* ALiViewController.h */,
+				EB3F5CD31DAF90EF0026673D /* ALiViewController.m */,
+				EB3F5CD41DAF90EF0026673D /* LandScapeViewController.h */,
+				EB3F5CD51DAF90EF0026673D /* LandScapeViewController.m */,
+				EB3F5CD61DAF90EF0026673D /* PortaitRecorderViewController.h */,
+				EB3F5CD71DAF90EF0026673D /* PortaitRecorderViewController.m */,
+				EB3F5CD81DAF90EF0026673D /* ViewController.h */,
+				EB3F5CD91DAF90EF0026673D /* ViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EB3F5CE01DAF90F50026673D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB3F5CE11DAF90F50026673D /* ALiBottomToolView.h */,
+				EB3F5CE21DAF90F50026673D /* ALiBottomToolView.m */,
+				EB3F5CE31DAF90F50026673D /* AliPlayerControlView.h */,
+				EB3F5CE41DAF90F50026673D /* AliPlayerControlView.m */,
+				EB3F5CE51DAF90F50026673D /* ALiTopToolView.h */,
+				EB3F5CE61DAF90F50026673D /* ALiTopToolView.m */,
+				EB3F5CE71DAF90F50026673D /* ArtAdviseOperationView.h */,
+				EB3F5CE81DAF90F50026673D /* ArtAdviseOperationView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,18 +432,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB092A2A1DADE84900E59F49 /* ViewController.m in Sources */,
 				EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */,
-				EB3F5CAF1DAF31440026673D /* ArtAdviseOperationView.m in Sources */,
-				EB3F5CB61DAF39F80026673D /* ALiViewController.m in Sources */,
-				EB3F5C981DAE669F0026673D /* LandScapeViewController.m in Sources */,
-				EB3F5C951DAE66910026673D /* PortaitRecorderViewController.m in Sources */,
 				EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */,
+				EB3F5CDE1DAF90EF0026673D /* PortaitRecorderViewController.m in Sources */,
+				EB3F5CE91DAF90F50026673D /* ALiBottomToolView.m in Sources */,
+				EB3F5CEA1DAF90F50026673D /* AliPlayerControlView.m in Sources */,
 				EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */,
-				EB3F5CB31DAF397E0026673D /* ALiNavigationViewController.m in Sources */,
-				EB3F5CB91DAF66E80026673D /* ALiTopToolView.m in Sources */,
-				EB3F5CBC1DAF72320026673D /* ALiBottomToolView.m in Sources */,
+				EB3F5CEC1DAF90F50026673D /* ArtAdviseOperationView.m in Sources */,
+				EB3F5CDF1DAF90EF0026673D /* ViewController.m in Sources */,
 				EB092A241DADE84900E59F49 /* main.m in Sources */,
+				EB3F5CEB1DAF90F50026673D /* ALiTopToolView.m in Sources */,
+				EB3F5CDA1DAF90EF0026673D /* ALiNavigationViewController.m in Sources */,
+				EB3F5CDB1DAF90EF0026673D /* ALiPlayViewController.m in Sources */,
+				EB3F5CDD1DAF90EF0026673D /* LandScapeViewController.m in Sources */,
+				EB3F5CDC1DAF90EF0026673D /* ALiViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "PortaitRecorderViewController.h"
+#import "ALiPlayViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
@@ -68,25 +69,6 @@
     [self.recorder setFocusCursorWithPoint:point];
 }
 
-- (void)playLastVideo
-{
-    AVPlayerItem *item = [[AVPlayerItem alloc] initWithURL:[NSURL fileURLWithPath:self.bottomTipView.lastVideoPath]];
-    //初始化player对象
-    self.player = [[AVPlayer alloc] initWithPlayerItem:item];
-    //设置播放页面
-    AVPlayerLayer *layer = [AVPlayerLayer playerLayerWithPlayer:_player];
-    //设置播放页面的大小
-    layer.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    layer.backgroundColor = [UIColor purpleColor].CGColor;
-    //设置播放窗口和当前视图之间的比例显示内容
-    layer.videoGravity = AVLayerVideoGravityResizeAspect;
-    //添加播放视图到self.view
-    [self.view.layer addSublayer:layer];
-    //设置播放的默认音量值
-    self.player.volume = 1.0f;
-    
-    [self.player play];
-}
 
 
 #pragma mark - Life Cycle
@@ -186,7 +168,11 @@
             [self recordAction];
             break;
         case EALiTipActionTypePlay:
-            [self playLastVideo];
+        {
+            ALiPlayViewController *playVc = [[ALiPlayViewController alloc] init];
+            playVc.videoPath = self.bottomTipView.lastVideoPath;
+            [self presentViewController:playVc animated:YES completion:nil];
+        }
             break;
         default:
             break;
