@@ -11,6 +11,8 @@
 #import "ALiVideoRecorder.h"
 #import <Photos/Photos.h>
 
+typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
+
 @interface ALiVideoRecorder ()<AVCaptureVideoDataOutputSampleBufferDelegate,
                                 AVCaptureAudioDataOutputSampleBufferDelegate,
                                 CAAnimationDelegate>
@@ -211,6 +213,37 @@
     return filesize;
 }
 
+- (void)unloadInputOrOutputDevice
+{
+    //改变会话的配置前一定要先开启配置，配置完成后提交配置改变
+    [self.recordSession beginConfiguration];
+    
+    [self.recordSession removeInput:self.backCameraInput];
+    [self.recordSession removeInput:self.audioMicInput];
+    
+    [self.recordSession removeOutput:self.videoOutput];
+    [self.recordSession removeOutput:self.audioOutput];
+    
+    //提交会话配置
+    [self.recordSession commitConfiguration];
+}
+
+- (void)cleanCache
+{
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.videoPath]) {
+        //删除
+        NSError *error = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:self.videoPath error:&error];
+        if (error) {
+            NSLog(@"%@",error);
+            return;
+        }
+        NSLog(@"录制意外结束，删除本地文件");
+    }
+    NSAssert([[NSThread mainThread] isMainThread], @"Not Main Thread");
+    
+}
+
 
 #pragma mark - Life Cycle
 
@@ -321,6 +354,59 @@
     CMSampleBufferCreateCopyWithNewTiming(nil, sample, count, pInfo, &sout);
     free(pInfo);
     return sout;
+}
+
+-(void)changeDeviceProperty:(PropertyChangeBlock)propertyChange{
+    AVCaptureDevice *captureDevice= [self.backCameraInput device];
+    NSError *error;
+    //注意改变设备属性前一定要首先调用lockForConfiguration:调用完之后使用unlockForConfiguration方法解锁
+    if ([captureDevice lockForConfiguration:&error]) {
+        propertyChange(captureDevice);
+        [captureDevice unlockForConfiguration];
+    }else{
+        NSLog(@"设置设备属性过程发生错误，错误信息：%@",error.localizedDescription);
+    }
+}
+
+-(void)setFocusMode:(AVCaptureFocusMode )focusMode{
+    [self changeDeviceProperty:^(AVCaptureDevice *captureDevice) {
+        if ([captureDevice isFocusModeSupported:focusMode]) {
+            [captureDevice setFocusMode:focusMode];
+        }
+    }];
+}
+
+-(void)setExposureMode:(AVCaptureExposureMode)exposureMode{
+    [self changeDeviceProperty:^(AVCaptureDevice *captureDevice) {
+        if ([captureDevice isExposureModeSupported:exposureMode]) {
+            [captureDevice setExposureMode:exposureMode];
+        }
+    }];
+}
+
+
+-(void)focusWithMode:(AVCaptureFocusMode)focusMode exposureMode:(AVCaptureExposureMode)exposureMode atPoint:(CGPoint)point{
+    [self changeDeviceProperty:^(AVCaptureDevice *captureDevice) {
+        if ([captureDevice isFocusModeSupported:focusMode]) {
+            [captureDevice setFocusMode:AVCaptureFocusModeAutoFocus];
+        }
+        if ([captureDevice isFocusPointOfInterestSupported]) {
+            [captureDevice setFocusPointOfInterest:point];
+        }
+        if ([captureDevice isExposureModeSupported:exposureMode]) {
+            [captureDevice setExposureMode:AVCaptureExposureModeAutoExpose];
+        }
+        if ([captureDevice isExposurePointOfInterestSupported]) {
+            [captureDevice setExposurePointOfInterest:point];
+        }
+    }];
+}
+
+//设置 聚焦点
+- (void)setFocusCursorWithPoint:(CGPoint)tapPoint
+{
+    CGPoint cameraPoint= [self.previewLayer captureDevicePointOfInterestForPoint:tapPoint];
+    [self focusWithMode:AVCaptureFocusModeAutoFocus exposureMode:AVCaptureExposureModeAutoExpose atPoint:cameraPoint];
 }
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate,AVCaptureAudioDataOutputSampleBufferDelegate

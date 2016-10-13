@@ -44,6 +44,8 @@
 - (void)openFlashLight;
 //关闭闪光灯
 - (void)closeFlashLight;
+//设置聚焦点  手动聚焦
+- (void)setFocusCursorWithPoint:(CGPoint)tapPoint;
 //切换前后置摄像头
 - (void)changeCameraInputDeviceisFront:(BOOL)isFront;
 //将mov的视频转成mp4
@@ -52,4 +54,6 @@
 - (CGFloat)getVideoLength:(NSURL *)URL;
 - (CGFloat)getFileSize:(NSString *)path;
 
+- (void)unloadInputOrOutputDevice;
+- (void)cleanCache;
 @end

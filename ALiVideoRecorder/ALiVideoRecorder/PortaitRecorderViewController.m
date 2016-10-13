@@ -51,6 +51,17 @@
     }
 }
 
+/**
+ *  添加点按手势，点按时聚焦
+ */
+-(void)addGenstureRecognizer{
+    UITapGestureRecognizer *tapGesture=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapScreen:)];
+    [self.view addGestureRecognizer:tapGesture];
+}
+-(void)tapScreen:(UITapGestureRecognizer *)tapGesture{
+    CGPoint point= [tapGesture locationInView:self.view];
+    [self.recorder setFocusCursorWithPoint:point];
+}
 
 
 #pragma mark - Life Cycle
@@ -76,6 +87,8 @@
         make.left.equalTo(self.view.mas_left);
     }];
     
+    
+    [self addGenstureRecognizer];
 }
 
 - (void)viewWillAppear:(BOOL)animated
