@@ -110,21 +110,21 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self.recordBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view.mas_bottom).offset(-15);
+        make.right.equalTo(self.view.mas_right).offset(-15);
         make.width.height.equalTo(@80);
+        make.centerY.equalTo(self.view.mas_centerY);
+    }];
+    
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).offset(15);
         make.centerX.equalTo(self.view.mas_centerX);
     }];
     
-//    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.centerX.equalTo(self.recordBtn);
-//        make.bottom.equalTo(self.recordBtn.mas_top).offset(-15);
-//    }];
-//    
-//    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.width.height.equalTo(@50);
-//        make.top.equalTo(self.view.mas_top).offset(30);
-//        make.left.equalTo(self.view.mas_left);
-//    }];
+    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@50);
+        make.top.equalTo(self.view.mas_top).offset(15.);
+        make.left.equalTo(self.view.mas_left).offset(15);
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
