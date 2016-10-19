@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="994" y="-1572"/>
         </scene>
-        <!--View Controller-->
+        <!--Li Short Video Controller-->
         <scene sceneID="01g-X4-9f7">
             <objects>
-                <viewController id="ZoJ-9o-L0f" sceneMemberID="viewController">
+                <viewController id="ZoJ-9o-L0f" customClass="ALiShortVideoController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pKc-BK-pgC"/>
                         <viewControllerLayoutGuide type="bottom" id="O40-Jj-uUP"/>

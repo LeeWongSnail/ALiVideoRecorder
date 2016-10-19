@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, EALiShortToolActionType){
+    EALiShortToolActionTypeRecord,
+    EALiShortToolActionTypeSend,
+};
+
+@protocol ALiShortToolBarDelegate <NSObject>
+
+- (void)shortToolBarActionHandler:(EALiShortToolActionType)aType;
+
+@end
+
+
 @interface AliShortVideoToolBar : UIView
+
+@property (nonatomic, weak) id <ALiShortToolBarDelegate> delegate;
 
 @end
