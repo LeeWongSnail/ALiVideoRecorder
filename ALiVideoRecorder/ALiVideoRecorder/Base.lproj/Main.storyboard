@@ -23,7 +23,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2536.8000000000002" y="-115.59220389805098"/>
+            <point key="canvasLocation" x="2310" y="148"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QHV-YG-Naz">
+            <objects>
+                <navigationController id="bac-cQ-Jx3" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="W96-YO-qKI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZoJ-9o-L0f" kind="relationship" relationship="rootViewController" id="3Jf-JS-0Ks"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ayD-C8-kCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="994" y="-1572"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="01g-X4-9f7">
+            <objects>
+                <viewController id="ZoJ-9o-L0f" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pKc-BK-pgC"/>
+                        <viewControllerLayoutGuide type="bottom" id="O40-Jj-uUP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9gd-a8-8Gb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kpl-KP-QAd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fNn-ov-hFM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1911" y="-1749"/>
         </scene>
         <!--Land Scape View Controller-->
         <scene sceneID="V7R-35-oPG">
@@ -42,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbb-Xo-HP5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2615.1999999999998" y="587.85607196401804"/>
+            <point key="canvasLocation" x="2594" y="-815"/>
         </scene>
         <!--Li Navigation View Controller-->
         <scene sceneID="HR0-y4-O8p">
@@ -60,7 +95,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eq8-Zs-DqO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="262"/>
+            <point key="canvasLocation" x="-879" y="-1218"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5Sb-H9-lDY">
@@ -80,6 +115,12 @@
                                     <segue destination="Gmw-Io-kYL" kind="presentation" id="7c5-YI-7oC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFj-D5-RU3">
+                                <state key="normal" title="录制短视频"/>
+                                <connections>
+                                    <segue destination="bac-cQ-Jx3" kind="show" id="dKr-NV-bKq"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1J-Tp-Bpm">
                                 <state key="normal" title="强制横屏录制"/>
                                 <connections>
@@ -89,17 +130,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="B1J-Tp-Bpm" firstAttribute="top" secondItem="nzf-ai-uHP" secondAttribute="bottom" constant="55" id="1uT-c3-M3B"/>
                             <constraint firstItem="nzf-ai-uHP" firstAttribute="top" secondItem="hit-Zr-1PV" secondAttribute="bottom" constant="142" id="GxC-aq-7hz"/>
-                            <constraint firstItem="B1J-Tp-Bpm" firstAttribute="leading" secondItem="nzf-ai-uHP" secondAttribute="leading" id="LdD-sY-xGh"/>
+                            <constraint firstItem="AFj-D5-RU3" firstAttribute="centerX" secondItem="nzf-ai-uHP" secondAttribute="centerX" id="Xpm-2c-iOh"/>
                             <constraint firstItem="nzf-ai-uHP" firstAttribute="centerX" secondItem="Dgz-x3-QYj" secondAttribute="centerX" id="evh-MO-Px8"/>
-                            <constraint firstItem="B1J-Tp-Bpm" firstAttribute="top" secondItem="nzf-ai-uHP" secondAttribute="bottom" constant="56" id="hNm-lK-5dY"/>
+                            <constraint firstItem="AFj-D5-RU3" firstAttribute="top" secondItem="B1J-Tp-Bpm" secondAttribute="bottom" constant="50" id="rsN-51-4x8"/>
+                            <constraint firstItem="B1J-Tp-Bpm" firstAttribute="centerX" secondItem="Dgz-x3-QYj" secondAttribute="centerX" id="yR5-FD-Br6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8wz-pL-KFD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ht-TP-r9t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="-188"/>
+            <point key="canvasLocation" x="174" y="-1573"/>
         </scene>
         <!--Li Navigation View Controller-->
         <scene sceneID="ZWC-MI-2cN">
@@ -117,7 +160,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4t-1u-hgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="587.85607196401804"/>
+            <point key="canvasLocation" x="1457" y="-815"/>
         </scene>
         <!--Li Navigation View Controller-->
         <scene sceneID="zzo-BP-7oU">
@@ -135,7 +178,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfH-f7-frc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597.5999999999999" y="-115.59220389805098"/>
+            <point key="canvasLocation" x="662" y="148"/>
         </scene>
     </scenes>
 </document>

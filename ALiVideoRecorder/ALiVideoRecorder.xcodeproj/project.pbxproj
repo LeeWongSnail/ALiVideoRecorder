@@ -17,6 +17,8 @@
 		EB092A481DADE84900E59F49 /* ALiVideoRecorderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A471DADE84900E59F49 /* ALiVideoRecorderUITests.m */; };
 		EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */; };
 		EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */; };
+		EB34DAB91DB7153A0015F9C3 /* ALiShortVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */; };
+		EB34DABC1DB71ABD0015F9C3 /* AliShortVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DABB1DB71ABD0015F9C3 /* AliShortVideoToolBar.m */; };
 		EB3F5CDA1DAF90EF0026673D /* ALiNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CCF1DAF90EF0026673D /* ALiNavigationViewController.m */; };
 		EB3F5CDB1DAF90EF0026673D /* ALiPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD11DAF90EF0026673D /* ALiPlayViewController.m */; };
 		EB3F5CDC1DAF90EF0026673D /* ALiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD31DAF90EF0026673D /* ALiViewController.m */; };
@@ -68,6 +70,10 @@
 		EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiAssetWriter.m; sourceTree = "<group>"; };
 		EB092A591DADE91A00E59F49 /* ALiVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiVideoRecorder.h; sourceTree = "<group>"; };
 		EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiVideoRecorder.m; sourceTree = "<group>"; };
+		EB34DAB71DB7153A0015F9C3 /* ALiShortVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiShortVideoController.h; sourceTree = "<group>"; };
+		EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiShortVideoController.m; sourceTree = "<group>"; };
+		EB34DABA1DB71ABD0015F9C3 /* AliShortVideoToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliShortVideoToolBar.h; sourceTree = "<group>"; };
+		EB34DABB1DB71ABD0015F9C3 /* AliShortVideoToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliShortVideoToolBar.m; sourceTree = "<group>"; };
 		EB3F5CB01DAF31F60026673D /* ALiVideoRecorder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALiVideoRecorder-Prefix.pch"; sourceTree = "<group>"; };
 		EB3F5CCE1DAF90EF0026673D /* ALiNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiNavigationViewController.h; sourceTree = "<group>"; };
 		EB3F5CCF1DAF90EF0026673D /* ALiNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiNavigationViewController.m; sourceTree = "<group>"; };
@@ -226,6 +232,8 @@
 				EB3F5CD71DAF90EF0026673D /* PortaitRecorderViewController.m */,
 				EB3F5CD81DAF90EF0026673D /* ViewController.h */,
 				EB3F5CD91DAF90EF0026673D /* ViewController.m */,
+				EB34DAB71DB7153A0015F9C3 /* ALiShortVideoController.h */,
+				EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -241,6 +249,8 @@
 				EB3F5CE61DAF90F50026673D /* ALiTopToolView.m */,
 				EB3F5CE71DAF90F50026673D /* ArtAdviseOperationView.h */,
 				EB3F5CE81DAF90F50026673D /* ArtAdviseOperationView.m */,
+				EB34DABA1DB71ABD0015F9C3 /* AliShortVideoToolBar.h */,
+				EB34DABB1DB71ABD0015F9C3 /* AliShortVideoToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -433,7 +443,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */,
+				EB34DABC1DB71ABD0015F9C3 /* AliShortVideoToolBar.m in Sources */,
 				EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */,
+				EB34DAB91DB7153A0015F9C3 /* ALiShortVideoController.m in Sources */,
 				EB3F5CDE1DAF90EF0026673D /* PortaitRecorderViewController.m in Sources */,
 				EB3F5CE91DAF90F50026673D /* ALiBottomToolView.m in Sources */,
 				EB3F5CEA1DAF90F50026673D /* AliPlayerControlView.m in Sources */,
