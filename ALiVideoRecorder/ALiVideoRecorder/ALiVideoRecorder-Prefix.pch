@@ -12,6 +12,9 @@
 
 #import "Masonry.h"
 
+#import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
+
 #define WEAKSELF(weakSelf)  __weak __typeof(&*self)weakSelf = self;
 
 

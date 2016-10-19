@@ -113,7 +113,7 @@
 {
     switch (aType) {
         case EALiShortToolActionTypeSend:
-            
+            [self sendVideo];
             break;
         case EALiShortToolActionTypeRecord:
             [self recordAction];
