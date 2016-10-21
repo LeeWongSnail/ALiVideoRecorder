@@ -15,6 +15,15 @@
 
 如果帮到了你，请帮我请高抬贵手，帮我[star一下](https://github.com/LeeWongSnail/ALiVideoRecorder)
 
+下面是gif演示图
+
+![gif演示](http://hoop8.com/1610C/DwnHZy5J.gif)
+
+
+
+![gif演示2](http://hoop8.com/1610C/EMCI5zGW.gif)
+
+
 #### 1、 功能目录
 
 ![功能目录](https://i.niupic.com/images/2016/10/13/3hhrO9.png)
