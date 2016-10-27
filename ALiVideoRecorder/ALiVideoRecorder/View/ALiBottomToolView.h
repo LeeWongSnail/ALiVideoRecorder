@@ -11,6 +11,7 @@
 typedef NS_ENUM(NSUInteger, EALiTipActionType){
     EALiTipActionTypeRecord,
     EALiTipActionTypePlay,
+    EALiTipActionTypeSwitch,
 };
 
 @protocol ALiBottomToolViewDelegate <NSObject>
@@ -27,6 +28,6 @@ typedef NS_ENUM(NSUInteger, EALiTipActionType){
 
 - (void)configVideoThumb:(UIImage *)thumbImage;
 
-- (void)configTimeLabel:(CGFloat)seconds;
+- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation;
 
 @end

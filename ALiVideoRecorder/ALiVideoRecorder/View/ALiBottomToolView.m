@@ -16,7 +16,10 @@
 
 @property (nonatomic, strong) UIButton *videoThumb;
 
-@property (nonatomic, strong) UILabel *timeLabel;
+
+
+//切换摄像头
+@property (nonatomic, strong) UIButton *switchCamera;
 
 @end
 
@@ -51,10 +54,13 @@
         make.width.height.equalTo(@50);
     }];
     
-    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.recordBtn);
-        make.bottom.equalTo(self.recordBtn.mas_top).offset(-2);
+    [self.switchCamera mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.height.equalTo(@40);
+        make.right.equalTo(self.mas_right).offset(-15);
+        make.centerY.equalTo(self.recordBtn.mas_centerY);
     }];
+    
+
 }
 
 - (void)actionHandler:(UIButton *)aBtn
@@ -70,13 +76,10 @@
     [self.videoThumb setImage:thumbImage forState:UIControlStateNormal];
 }
 
-- (void)configTimeLabel:(CGFloat)seconds
+//做对应的旋转
+- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation
 {
-    NSInteger time = ceil(seconds);
-    NSInteger second = time%60;
-    NSInteger minute = time/60;
     
-    self.timeLabel.text = [NSString stringWithFormat:@"%02ld : %02ld",minute,second];
 }
 
 #pragma mark - Lazy Load
@@ -117,16 +120,18 @@
     return _recordBtn;
 }
 
-- (UILabel *)timeLabel
+- (UIButton *)switchCamera
 {
-    if (_timeLabel == nil) {
-        _timeLabel = [[UILabel alloc] init];
-        _timeLabel.textColor = [UIColor whiteColor];
-        _timeLabel.font = [UIFont systemFontOfSize:12.];
-        _timeLabel.layer.cornerRadius = 5;
-        [self addSubview:_timeLabel];
+    if (_switchCamera == nil) {
+        _switchCamera = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_switchCamera setBackgroundImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
+        _switchCamera.tag = 10000 + EALiTipActionTypeRecord;
+        [_switchCamera addTarget:self action:@selector(actionHandler:) forControlEvents:UIControlEventTouchUpInside];
+        [self.effectView addSubview:_switchCamera];
     }
-    return _timeLabel;
+    return _switchCamera;
 }
+
+
 
 @end

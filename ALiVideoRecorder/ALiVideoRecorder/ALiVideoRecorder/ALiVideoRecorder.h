@@ -10,6 +10,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger,EArtVideoRecordType){
+    EArtVideoRecordType720P,
+    EArtVideoRecordType480P,
+};
+
+typedef NS_ENUM(NSUInteger,EArtRecordOrientation){
+    EArtRecordOrientationPortrait,
+    EArtRecordOrientationLandscapeRight,
+    EArtRecordOrientationLandscapeLeft,
+};
+
 @protocol ALiVideoRecordDelegate <NSObject>
 
 - (void)recordProgress:(CGFloat)progress;
@@ -25,9 +36,13 @@
 @property (nonatomic, strong ,readonly) NSString *videoPath;//视频路径
 
 @property (nonatomic, weak) id <ALiVideoRecordDelegate> delegate;
+@property (nonatomic, assign) EArtRecordOrientation recordOrientation;
+@property (nonatomic, assign) EArtVideoRecordType videoPresent;
 
 //捕获到的视频呈现的layer
 - (AVCaptureVideoPreviewLayer *)previewLayer;
+//调整录制的方向
+- (void)adjustRecorderOrientation:(AVCaptureVideoOrientation)orientation;
 //启动录制功能
 - (void)openPreview;
 //关闭录制功能

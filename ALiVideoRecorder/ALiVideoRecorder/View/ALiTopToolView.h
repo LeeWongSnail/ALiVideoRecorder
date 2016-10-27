@@ -25,4 +25,7 @@ typedef NS_ENUM(NSUInteger, EALiTopTipActionType){
 
 @property (nonatomic, weak) id <ALiTopToolViewDelegate> delegate;
 
+- (void)configTimeLabel:(CGFloat)seconds;
+
+- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation;
 @end

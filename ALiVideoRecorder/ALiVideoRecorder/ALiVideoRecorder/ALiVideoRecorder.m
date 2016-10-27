@@ -37,6 +37,8 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 @property (strong, nonatomic) AVCaptureConnection        *videoConnection;//视频录制连接
 @property (strong, nonatomic) AVCaptureVideoDataOutput   *videoOutput;//视频输出
 @property (strong, nonatomic) AVCaptureAudioDataOutput   *audioOutput;//音频输出
+@property (nonatomic, assign) NSInteger cx; //视频分辨的宽
+@property (nonatomic, assign) NSInteger cy; //视频分辨的高
 
 //录制写入
 @property (nonatomic, strong) ALiAssetWriter *assetWriter;
@@ -242,6 +244,11 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     }
     NSAssert([[NSThread mainThread] isMainThread], @"Not Main Thread");
     
+}
+
+- (void)adjustRecorderOrientation:(AVCaptureVideoOrientation)orientation
+{
+    self.videoConnection.videoOrientation = orientation;
 }
 
 
@@ -516,6 +523,39 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
         _previewLayer = preview;
     }
     return _previewLayer;
+}
+
+- (NSInteger)cx
+{
+    switch (self.videoPresent) {
+        case EArtVideoRecordType480P:
+            
+            return self.recordOrientation == EArtRecordOrientationPortrait? 480 : 640;
+            break;
+        case EArtVideoRecordType720P:
+            return self.recordOrientation == EArtRecordOrientationPortrait? 720 : 1280;
+            break;
+            
+        default:
+            return 720;
+            break;
+    }
+}
+
+- (NSInteger)cy
+{
+    switch (self.videoPresent) {
+        case EArtVideoRecordType480P:
+            return self.recordOrientation == EArtRecordOrientationPortrait? 640 : 480;
+            break;
+        case EArtVideoRecordType720P:
+            return self.recordOrientation == EArtRecordOrientationPortrait? 1280 : 720;
+            break;
+            
+        default:
+            return 1280;
+            break;
+    }
 }
 
 //录制的队列

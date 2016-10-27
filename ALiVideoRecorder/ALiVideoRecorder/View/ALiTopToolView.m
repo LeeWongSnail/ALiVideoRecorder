@@ -16,10 +16,10 @@
 //闪光灯
 @property (nonatomic, strong) UIButton *flashBtn;
 
-//切换摄像头
-@property (nonatomic, strong) UIButton *switchCamera;
+@property (nonatomic, strong) UILabel *timeLabel;
 
 @property (nonatomic, strong) UIVisualEffectView *effectView;
+
 
 @end
 
@@ -40,25 +40,24 @@
 
 - (void)buildUI
 {
-    CGFloat btnWidth = [UIScreen mainScreen].bounds.size.width/3.;
+    CGFloat btnWidth = [UIScreen mainScreen].bounds.size.width/4.;
     [self.closeRecording mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(btnWidth));
         make.height.equalTo(@64);
-        make.left.top.equalTo(self);
+        make.left.equalTo(self);
+        make.centerY.equalTo(self.mas_centerY);
     }];
     
     [self.flashBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(@(btnWidth));
         make.height.equalTo(self.closeRecording);
-        make.left.equalTo(self.closeRecording.mas_right);
-        make.top.equalTo(self.mas_top);
+        make.centerY.equalTo(self.mas_centerY);
+        make.right.equalTo(self.mas_right);
     }];
     
-    [self.switchCamera mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.equalTo(@(btnWidth));
-        make.height.equalTo(self.closeRecording);
-        make.left.equalTo(self.flashBtn.mas_right);
-        make.top.equalTo(self.mas_top);
+    [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.closeRecording.mas_centerY);
+        make.centerX.equalTo(self.mas_centerX);
     }];
 }
 
@@ -70,6 +69,20 @@
     }
 }
 
+- (void)configTimeLabel:(CGFloat)seconds
+{
+    NSInteger time = ceil(seconds);
+    NSInteger second = time%60;
+    NSInteger minute = time/60;
+    
+    self.timeLabel.text = [NSString stringWithFormat:@"%02ld : %02ld",(long)minute,(long)second];
+}
+
+//做对应的旋转
+- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation
+{
+
+}
 
 #pragma mark - Lazy Load
 
@@ -97,16 +110,17 @@
     return _flashBtn;
 }
 
-- (UIButton *)switchCamera
+- (UILabel *)timeLabel
 {
-    if (_switchCamera == nil) {
-        _switchCamera = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_switchCamera setImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
-        _switchCamera.tag = 10000 + EALiTipActionTypeSwitchCamera;
-        [_switchCamera addTarget:self action:@selector(eventHandler:) forControlEvents:UIControlEventTouchUpInside];
-        [self.effectView addSubview:_switchCamera];
+    if (_timeLabel == nil) {
+        _timeLabel = [[UILabel alloc] init];
+        _timeLabel.textColor = [UIColor whiteColor];
+        _timeLabel.font = [UIFont systemFontOfSize:15.];
+        _timeLabel.layer.cornerRadius = 10;
+        _timeLabel.text = @"00:00";
+        [self addSubview:_timeLabel];
     }
-    return _switchCamera;
+    return _timeLabel;
 }
 
 - (UIVisualEffectView *)effectView
