@@ -45,7 +45,7 @@
     
     if (!self.recorder.isCapturing) {
         [self.recorder startRecording];
-        self.topTipView.hidden = YES;
+        [self configVideoOutputOrientation];
     }else {
         [self.recorder stopRecordingCompletion:^(UIImage *movieImage) {
             NSLog(@"%@",self.recorder.videoPath);
@@ -58,7 +58,6 @@
             }];
             
             self.bottomTipView.lastVideoPath = self.recorder.videoPath;
-            self.topTipView.hidden = NO;
         }];
         
     }
@@ -165,56 +164,66 @@
 
 - (void)configPortraitUI
 {
-    [self.bottomTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bottomTipView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.equalTo(self.view);
         make.height.equalTo(@100);
     }];
     
-    
-    [self.topTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.topTipView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);
         make.height.equalTo(@64);
     }];
+    
     if (self.orientationLast == UIInterfaceOrientationLandscapeLeft) {
-        
+        self.topTipView.transform = CGAffineTransformRotate(self.topTipView.transform, M_PI_2);
+         [self.bottomTipView configViewWithAngle:M_PI_2];
     } else if (self.orientationLast == UIInterfaceOrientationLandscapeRight) {
-        
+         [self.bottomTipView configViewWithAngle:-M_PI_2];
+        self.topTipView.transform = CGAffineTransformRotate(self.topTipView.transform, -M_PI_2);
     }
 }
 
 - (void)configLandscapeRightUI
 {
-    [self.bottomTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bottomTipView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.equalTo(self.view);
         make.height.equalTo(@100);
     }];
+    [self.bottomTipView configViewWithAngle:M_PI_2];
     
-    
-    [self.topTipView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
+    [self.topTipView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.centerX.equalTo(self.view.mas_right).offset(-32);
         make.height.equalTo(@64);
+        make.width.equalTo(@(SCREEN_W));
+        
     }];
     
     if (self.orientationLast == UIInterfaceOrientationPortrait || self.orientationLast == UIInterfaceOrientationUnknown) {
+        self.topTipView.transform = CGAffineTransformMakeRotation(M_PI_2);
     } else if (self.orientationLast == UIInterfaceOrientationLandscapeLeft) {
+        self.topTipView.transform = CGAffineTransformMakeRotation(-M_PI);
     }
 }
 
 - (void)configLandscapeLeftUI
 {
-    [self.bottomTipView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.bottomTipView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.bottom.left.right.equalTo(self.view);
         make.height.equalTo(@100);
     }];
     
-    
-    [self.topTipView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
+        [self.bottomTipView configViewWithAngle:-M_PI_2];
+    [self.topTipView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.centerX.equalTo(self.view.mas_left).offset(32);
+        make.width.equalTo(@(SCREEN_W));
         make.height.equalTo(@64);
     }];
     if (self.orientationLast == UIInterfaceOrientationLandscapeRight) {
-
+        self.topTipView.transform = CGAffineTransformMakeRotation(-M_PI);
     } else if (self.orientationLast == UIInterfaceOrientationPortrait || self.orientationLast == UIInterfaceOrientationUnknown) {
+        self.topTipView.transform = CGAffineTransformMakeRotation(-M_PI_2);
     }
 }
 
@@ -361,6 +370,16 @@
         [self.view addSubview:_bottomTipView];
     }
     return _bottomTipView;
+}
+
+- (CMMotionManager *)motionManager
+{
+    if (_motionManager == nil) {
+        _motionManager = [[CMMotionManager alloc] init];
+        _motionManager.accelerometerUpdateInterval = 1./15.;
+        
+    }
+    return _motionManager;
 }
 
 

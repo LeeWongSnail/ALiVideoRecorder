@@ -143,6 +143,10 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
 
 //切换前后置摄像头
 - (void)switchCamera{
+    if (self.isCapturing) {
+        NSLog(@"视频录制期间不允许切换摄像头");
+        return;
+    }
     if (!self.isFront) {
         [self.recordSession stopRunning];
         [self.recordSession removeInput:self.backCameraInput];
@@ -433,7 +437,7 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
             [self setAudioFormat:fmt];
             NSString *videoName = [self getUploadFile_type:@"video" fileType:@"mp4"];
             self.videoPath = [[self getVideoCachePath] stringByAppendingPathComponent:videoName];
-            self.assetWriter = [ALiAssetWriter encoderForPath:self.videoPath Height:_cy width:_cx channels:_channels samples:_samplerate];
+            self.assetWriter = [ALiAssetWriter encoderForPath:self.videoPath Height:self.cy width:self.cx channels:_channels samples:_samplerate];
         }
         //判断是否中断录制过
         if (self.isDiscount) {

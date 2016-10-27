@@ -28,6 +28,6 @@ typedef NS_ENUM(NSUInteger, EALiTipActionType){
 
 - (void)configVideoThumb:(UIImage *)thumbImage;
 
-- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation;
+- (void)configViewWithAngle:(CGFloat)angle;
 
 @end

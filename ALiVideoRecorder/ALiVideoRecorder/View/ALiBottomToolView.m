@@ -59,8 +59,6 @@
         make.right.equalTo(self.mas_right).offset(-15);
         make.centerY.equalTo(self.recordBtn.mas_centerY);
     }];
-    
-
 }
 
 - (void)actionHandler:(UIButton *)aBtn
@@ -77,9 +75,10 @@
 }
 
 //做对应的旋转
-- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation
+- (void)configViewWithAngle:(CGFloat)angle
 {
-    
+    self.videoThumb.transform = CGAffineTransformRotate(self.videoThumb.transform,angle);
+    self.switchCamera.transform = CGAffineTransformRotate(self.switchCamera.transform,angle);
 }
 
 #pragma mark - Lazy Load

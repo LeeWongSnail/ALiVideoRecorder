@@ -79,7 +79,7 @@
 }
 
 //做对应的旋转
-- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation
+- (void)configViewWithOrientation:(CGFloat)angle
 {
 
 }

@@ -27,5 +27,5 @@ typedef NS_ENUM(NSUInteger, EALiTopTipActionType){
 
 - (void)configTimeLabel:(CGFloat)seconds;
 
-- (void)configViewWithOrientation:(UIInterfaceOrientation)orientation;
+- (void)configViewWithOrientation:(CGFloat)angle;
 @end
