@@ -266,6 +266,13 @@ typedef void(^PropertyChangeBlock)(AVCaptureDevice *captureDevice);
     return self;
 }
 
+- (void)dealloc
+{
+    if (_assetWriter) {
+        _assetWriter = nil;
+    }
+    NSLog(@"----1%s1----",__func__);
+}
 
 #pragma mark - Private Method
 

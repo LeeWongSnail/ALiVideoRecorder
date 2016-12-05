@@ -91,7 +91,37 @@
 
 //完成视频录制时调用
 - (void)finishWithCompletionHandler:(void (^)(void))handler {
-    [_writer finishWritingWithCompletionHandler: handler];
+    [self assertVideoWriteNormal];
+    WEAKSELF(weakSelf);
+    NSLog(@"-----完成视频录制------");
+    [self.writer finishWritingWithCompletionHandler:^{
+        weakSelf.writer = nil;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (handler) {
+                handler();
+            }
+        });
+    }];
+}
+
+- (void)assertVideoWriteNormal
+{
+    NSAssert(self.writer != nil, @"写入视频已被释放");
+    
+    switch (self.writer.status) {
+        case AVAssetWriterStatusUnknown:
+            NSAssert(self.writer.status != AVAssetWriterStatusUnknown, @"写入状态未知,无法完成写入");
+            break;
+        case AVAssetWriterStatusCompleted:
+            break;
+        case AVAssetWriterStatusFailed:
+            NSAssert(self.writer.status != AVAssetWriterStatusFailed, @"写入状态失败,无法完成写入");
+            break;
+        case AVAssetWriterStatusCancelled:
+            break;
+        default:
+            break;
+    }
 }
 
 //通过这个方法写入数据

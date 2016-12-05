@@ -17,6 +17,7 @@
 		EB092A481DADE84900E59F49 /* ALiVideoRecorderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A471DADE84900E59F49 /* ALiVideoRecorderUITests.m */; };
 		EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */; };
 		EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */; };
+		EB12B42E1DF5472900ED6F5A /* ALiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12B42D1DF5472900ED6F5A /* ALiUtil.m */; };
 		EB34DAB91DB7153A0015F9C3 /* ALiShortVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */; };
 		EB34DABC1DB71ABD0015F9C3 /* AliShortVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DABB1DB71ABD0015F9C3 /* AliShortVideoToolBar.m */; };
 		EB34DABF1DB723090015F9C3 /* ALiShortVideoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DABE1DB723090015F9C3 /* ALiShortVideoPreviewController.m */; };
@@ -72,6 +73,8 @@
 		EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiAssetWriter.m; sourceTree = "<group>"; };
 		EB092A591DADE91A00E59F49 /* ALiVideoRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiVideoRecorder.h; sourceTree = "<group>"; };
 		EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiVideoRecorder.m; sourceTree = "<group>"; };
+		EB12B42C1DF5472900ED6F5A /* ALiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiUtil.h; sourceTree = "<group>"; };
+		EB12B42D1DF5472900ED6F5A /* ALiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiUtil.m; sourceTree = "<group>"; };
 		EB34DAB71DB7153A0015F9C3 /* ALiShortVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiShortVideoController.h; sourceTree = "<group>"; };
 		EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiShortVideoController.m; sourceTree = "<group>"; };
 		EB34DABA1DB71ABD0015F9C3 /* AliShortVideoToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliShortVideoToolBar.h; sourceTree = "<group>"; };
@@ -172,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				EB092A551DADE88C00E59F49 /* ALiVideoRecorder */,
+				EB12B42B1DF5471400ED6F5A /* ALiUtil */,
 				EB3F5CE01DAF90F50026673D /* View */,
 				EB3F5CCD1DAF90EF0026673D /* ViewController */,
 				EB092A251DADE84900E59F49 /* AppDelegate.h */,
@@ -223,6 +227,15 @@
 				EB34DAC11DB7240D0015F9C3 /* ALiAssetReader.m */,
 			);
 			path = ALiVideoRecorder;
+			sourceTree = "<group>";
+		};
+		EB12B42B1DF5471400ED6F5A /* ALiUtil */ = {
+			isa = PBXGroup;
+			children = (
+				EB12B42C1DF5472900ED6F5A /* ALiUtil.h */,
+				EB12B42D1DF5472900ED6F5A /* ALiUtil.m */,
+			);
+			path = ALiUtil;
 			sourceTree = "<group>";
 		};
 		EB3F5CCD1DAF90EF0026673D /* ViewController */ = {
@@ -453,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB34DAC21DB7240D0015F9C3 /* ALiAssetReader.m in Sources */,
+				EB12B42E1DF5472900ED6F5A /* ALiUtil.m in Sources */,
 				EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */,
 				EB34DABC1DB71ABD0015F9C3 /* AliShortVideoToolBar.m in Sources */,
 				EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */,

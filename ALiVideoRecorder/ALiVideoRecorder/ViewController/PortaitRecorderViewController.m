@@ -10,11 +10,14 @@
 #import "ALiPlayViewController.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import <AVFoundation/AVFoundation.h>
+#import <CoreTelephony/CTCallCenter.h>
+#import <CoreTelephony/CTCall.h>
 #import <CoreMotion/CoreMotion.h>
 #import <AVKit/AVKit.h>
 #import "ALiVideoRecorder.h"
 #import "ALiBottomToolView.h"
 #import "ALiTopToolView.h"
+#import "ALiUtil.h"
 
 @interface PortaitRecorderViewController () <ALiVideoRecordDelegate,ALiTopToolViewDelegate,ALiBottomToolViewDelegate>
 
@@ -29,6 +32,8 @@
 @property (nonatomic, strong) AVPlayer *player;
 
 @property (nonatomic, assign) UIInterfaceOrientation orientationLast;
+@property (nonatomic, strong) CTCallCenter *callCenter;
+@property (nonatomic, assign) BOOL hasIncomingCall;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
@@ -40,26 +45,67 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)stopRecording
+{
+    WEAKSELF(weakSelf);
+    [ALiUtil playSystemTipAudioIsBegin:NO];
+    [self.recorder stopRecordingCompletion:^(UIImage *movieImage) {
+        NSLog(@"%@",self.recorder.videoPath);
+        CGFloat duration = [self.recorder getVideoLength:[NSURL URLWithString:self.recorder.videoPath]];
+        CGFloat videoSize = [self.recorder getFileSize:self.recorder.videoPath];
+        NSLog(@"%f-----%f",duration,videoSize);
+        [self.recorder movieToImageHandler:^(UIImage *movieImage) {
+            [weakSelf.bottomTipView configVideoThumb:movieImage];
+        }];
+        
+        self.bottomTipView.lastVideoPath = self.recorder.videoPath;
+    }];
+
+}
+
+//监听刚进入后台 推荐如果正在录制则暂停 如果未开始录制则返回上一个界面
+- (void)enterBackgroundMode:(NSNotification *)noti
+{
+    //进入后台
+    if (self.recorder.isCapturing && !self.recorder.isPaused) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self stopRecording];
+        });
+    } else {
+        //非暂停状态 暂停状态不做任何操作
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self back];
+        });
+    }
+}
+
+//监听来电
+- (void)detectIncomingCall
+{
+    self.callCenter = [[CTCallCenter alloc] init];
+    WEAKSELF(weakSelf);
+    self.callCenter.callEventHandler = ^(CTCall *call){
+        if([call.callState isEqualToString:CTCallStateIncoming]){
+            dispatch_async(dispatch_get_main_queue(), ^{
+                weakSelf.hasIncomingCall = YES;
+                [weakSelf stopRecording];
+            });
+        } else {
+            weakSelf.hasIncomingCall = NO;
+        }
+    };
+}
+
 //开始和暂停录制事件
 - (void)recordAction {
     
     if (!self.recorder.isCapturing) {
+        [ALiUtil playSystemTipAudioIsBegin:YES];
         [self.recorder startRecording];
         [self configVideoOutputOrientation];
     }else {
-        [self.recorder stopRecordingCompletion:^(UIImage *movieImage) {
-            NSLog(@"%@",self.recorder.videoPath);
-            CGFloat duration = [self.recorder getVideoLength:[NSURL URLWithString:self.recorder.videoPath]];
-            CGFloat videoSize = [self.recorder getFileSize:self.recorder.videoPath];
-            NSLog(@"%f-----%f",duration,videoSize);
-            WEAKSELF(weakSelf);
-            [self.recorder movieToImageHandler:^(UIImage *movieImage) {
-                [weakSelf.bottomTipView configVideoThumb:movieImage];
-            }];
-            
-            self.bottomTipView.lastVideoPath = self.recorder.videoPath;
-        }];
-        
+        [self stopRecording];
     }
 }
 
@@ -256,6 +302,8 @@
 {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(enterBackgroundMode:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [self detectIncomingCall];
     if([self.motionManager isAccelerometerAvailable]){
         [self orientationChange];
     }
@@ -278,6 +326,7 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self.recorder closePreview];
 }
 
@@ -291,12 +340,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc
+{
+    NSLog(@"%s",__func__);
+}
+
 
 #pragma mark - ALiVideoRecordDelegate
 
 - (void)recordProgress:(CGFloat)progress
 {
-    NSLog(@"%f",progress * self.recorder.maxVideoDuration);
+//    NSLog(@"%f",progress * self.recorder.maxVideoDuration);
     [self.topTipView configTimeLabel:progress * self.recorder.maxVideoDuration];
 }
 
@@ -344,7 +398,7 @@
 {
     if (_recorder == nil) {
         _recorder = [[ALiVideoRecorder alloc] init];
-        _recorder.maxVideoDuration = 300;
+        _recorder.maxVideoDuration = 3600;
         _recorder.delegate = self;
         _recorder.previewLayer.frame = self.view.bounds;
         [self.view.layer insertSublayer:_recorder.previewLayer atIndex:0];

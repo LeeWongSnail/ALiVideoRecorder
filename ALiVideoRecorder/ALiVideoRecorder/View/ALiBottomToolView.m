@@ -18,6 +18,8 @@
 
 
 
+
+
 //切换摄像头
 @property (nonatomic, strong) UIButton *switchCamera;
 
