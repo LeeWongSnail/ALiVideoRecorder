@@ -43,6 +43,12 @@
 
 - (void)back
 {
+    if (self.recorder.isCapturing) {
+        //正在录制 停止录制删除缓存
+        [self.recorder unloadInputOrOutputDevice];
+        [self.recorder cleanCache];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -64,7 +70,7 @@
 
 }
 
-//监听刚进入后台 推荐如果正在录制则暂停 如果未开始录制则返回上一个界面
+//监听刚进入后台 推荐如果正在录制则停止 如果未开始录制则返回上一个界面
 - (void)enterBackgroundMode:(NSNotification *)noti
 {
     //进入后台
