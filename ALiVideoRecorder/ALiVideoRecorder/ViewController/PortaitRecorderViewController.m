@@ -27,6 +27,9 @@
 
 @property (nonatomic, strong) ALiBottomToolView *bottomTipView;
 
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) BOOL observeEmptyDisk;
+
 @property (nonatomic, strong) UIVisualEffectView *recordView;
 
 @property (nonatomic, strong) AVPlayer *player;
@@ -86,6 +89,7 @@
     }
 }
 
+
 //监听来电
 - (void)detectIncomingCall
 {
@@ -108,10 +112,32 @@
     
     if (!self.recorder.isCapturing) {
         [ALiUtil playSystemTipAudioIsBegin:YES];
+        [self chekcDiskSpace];
         [self.recorder startRecording];
         [self configVideoOutputOrientation];
     }else {
         [self stopRecording];
+    }
+}
+
+
+- (void)chekcDiskSpace
+{
+    //单位是M
+    NSInteger leftSpace = [ALiUtil diskFreeSpace]/(1000*1000);
+    if (leftSpace < 100) {
+        if (self.timer == nil) {
+            self.timer = [NSTimer timerWithTimeInterval:30 target:self selector:@selector(chekcDiskSpace) userInfo:nil repeats:YES];
+            [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+        }
+        
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"内存不足" message:@"存储空间不足，视频录制将自动停止" preferredStyle:UIAlertControllerStyleAlert];
+        WEAKSELF(weakSelf);
+        UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [weakSelf stopRecording];
+        }];
+        [alert addAction:action];
+        [self.navigationController presentViewController:alert animated:YES completion:nil];
     }
 }
 
@@ -358,6 +384,9 @@
 {
 //    NSLog(@"%f",progress * self.recorder.maxVideoDuration);
     [self.topTipView configTimeLabel:progress * self.recorder.maxVideoDuration];
+    if ((progress *self.recorder.maxVideoDuration) > 600) {
+        []
+    }
 }
 
 #pragma mark - ALiTopToolViewDelegate

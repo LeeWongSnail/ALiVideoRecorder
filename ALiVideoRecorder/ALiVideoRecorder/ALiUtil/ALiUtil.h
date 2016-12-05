@@ -10,5 +10,5 @@
 
 @interface ALiUtil : NSObject
 + (void)playSystemTipAudioIsBegin:(BOOL)isBegin;
-- (long long)diskFreeSpace;
++ (long long)diskFreeSpace;
 @end

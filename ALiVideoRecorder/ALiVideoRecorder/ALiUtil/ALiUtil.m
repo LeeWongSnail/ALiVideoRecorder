@@ -30,7 +30,7 @@ long long freeSpace() {
     return freespace;
 }
 
-- (long long)diskFreeSpace
++ (long long)diskFreeSpace
 {
     return freeSpace();
 }
