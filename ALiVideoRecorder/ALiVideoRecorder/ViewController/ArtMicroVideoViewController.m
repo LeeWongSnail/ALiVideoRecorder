@@ -76,7 +76,14 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES];
     [self setupVideo];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -101,13 +108,13 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
     }];
     
     [self.recordBtnView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.height.equalTo(@120.);
-        make.right.equalTo(self.view).offset(-30.);
-        make.centerY.equalTo(self.view);
+        make.width.height.equalTo(@120);
+        make.bottom.equalTo(self.view).offset(-50);
+        make.centerX.equalTo(self.view);
     }];
     
     [self.tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.recordBtnView.mas_bottom).offset(10.);
+        make.bottom.equalTo(self.recordBtnView.mas_top).offset(-22);
         make.centerX.equalTo(self.recordBtnView);
     }];
     
@@ -120,8 +127,9 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
     }];
     
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.recordBtnView);
-        make.bottom.equalTo(self.view).offset(-45.);
+        make.centerY.equalTo(self.recordBtnView);
+        make.bottom.equalTo(self.view).offset(-79.);
+        make.left.equalTo(@58);
     }];
     
     WEAKSELF(weakSelf);
@@ -132,14 +140,14 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
     
     self.recordBtnView.completeRecord = ^(CFTimeInterval recordTime){
         weakSelf.recoding = NO;
-//        if (recordTime < 1.) {
-//            [weakSelf showErrorText:@"录制时间太短"];
-//            return ;
-//        }
+        //        if (recordTime < 1.) {
+        //            [weakSelf showErrorText:@"录制时间太短"];
+        //            return ;
+        //        }
         [weakSelf saveVideo:^(NSURL *outFileURL) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (!outFileURL) {
-                    //[weakSelf showText:@"视频录制失败"];
+                    //[ArtProgressHUD showInfoWithStatus:@"视频录制失败"];
                 }
                 [weakSelf stopRecord];
                 [weakSelf addPlayerView];
@@ -166,14 +174,14 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
 {
     [self.sendBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@70.);
-        make.centerY.equalTo(self.view).offset(35.+372./4.);
-        make.right.equalTo(self.view).offset(-50.);
+        make.centerX.equalTo(self.view).offset(35.+372./4.);
+        make.bottom.equalTo(self.view).offset(-60.);
     }];
     
     [self.cancelBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.height.equalTo(@70.);
-        make.centerY.equalTo(self.view).offset(-(35.+372./4.));
-        make.right.equalTo(self.view).offset(-50.);
+        make.centerX.equalTo(self.view).offset(-(35.+372./4.));
+        make.bottom.equalTo(self.sendBtn);
     }];
     
     [UIView animateWithDuration:0.25 animations:^{
@@ -203,6 +211,7 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
         self.recordBtnView.alpha = 1.;
     }];
 }
+
 
 - (void)setupVideo {
     NSString *unUseInfo = nil;
