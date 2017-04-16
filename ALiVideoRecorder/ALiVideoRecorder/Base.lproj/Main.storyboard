@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DaT-RC-C6x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="DaT-RC-C6x">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="994" y="-1572"/>
         </scene>
-        <!--Li Short Video Controller-->
+        <!--Art Micro Video View Controller-->
         <scene sceneID="01g-X4-9f7">
             <objects>
-                <viewController id="ZoJ-9o-L0f" customClass="ALiShortVideoController" sceneMemberID="viewController">
+                <viewController id="ZoJ-9o-L0f" customClass="ArtMicroVideoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pKc-BK-pgC"/>
                         <viewControllerLayoutGuide type="bottom" id="O40-Jj-uUP"/>
@@ -110,18 +113,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-ai-uHP">
+                                <rect key="frame" x="156.5" y="206" width="62" height="30"/>
                                 <state key="normal" title="竖屏录制"/>
                                 <connections>
                                     <segue destination="Gmw-Io-kYL" kind="presentation" id="7c5-YI-7oC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AFj-D5-RU3">
+                                <rect key="frame" x="149" y="371" width="77" height="30"/>
                                 <state key="normal" title="录制短视频"/>
                                 <connections>
                                     <segue destination="bac-cQ-Jx3" kind="show" id="dKr-NV-bKq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1J-Tp-Bpm">
+                                <rect key="frame" x="141.5" y="291" width="92" height="30"/>
                                 <state key="normal" title="强制横屏录制"/>
                                 <connections>
                                     <segue destination="3AZ-Kz-VGZ" kind="presentation" id="vKZ-W6-DgL"/>

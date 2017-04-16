@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		510060CF833D10C079E2EFE0 /* libPods-ALiVideoRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E99070EF0BD08B0BBA800768 /* libPods-ALiVideoRecorder.a */; };
+		85A41670CF3BF7B84CA730EC /* libPods-ALiVideoRecorder.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D2365F8BA3FFB0810B16984 /* libPods-ALiVideoRecorder.a */; };
 		EB092A241DADE84900E59F49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A231DADE84900E59F49 /* main.m */; };
 		EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A261DADE84900E59F49 /* AppDelegate.m */; };
 		EB092A2D1DADE84900E59F49 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB092A2B1DADE84900E59F49 /* Main.storyboard */; };
@@ -18,9 +18,7 @@
 		EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A571DADE8F700E59F49 /* ALiAssetWriter.m */; };
 		EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */; };
 		EB12B42E1DF5472900ED6F5A /* ALiUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EB12B42D1DF5472900ED6F5A /* ALiUtil.m */; };
-		EB34DAB91DB7153A0015F9C3 /* ALiShortVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */; };
 		EB34DABC1DB71ABD0015F9C3 /* AliShortVideoToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DABB1DB71ABD0015F9C3 /* AliShortVideoToolBar.m */; };
-		EB34DABF1DB723090015F9C3 /* ALiShortVideoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DABE1DB723090015F9C3 /* ALiShortVideoPreviewController.m */; };
 		EB34DAC21DB7240D0015F9C3 /* ALiAssetReader.m in Sources */ = {isa = PBXBuildFile; fileRef = EB34DAC11DB7240D0015F9C3 /* ALiAssetReader.m */; };
 		EB3F5CDA1DAF90EF0026673D /* ALiNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CCF1DAF90EF0026673D /* ALiNavigationViewController.m */; };
 		EB3F5CDB1DAF90EF0026673D /* ALiPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CD11DAF90EF0026673D /* ALiPlayViewController.m */; };
@@ -32,6 +30,12 @@
 		EB3F5CEA1DAF90F50026673D /* AliPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CE41DAF90F50026673D /* AliPlayerControlView.m */; };
 		EB3F5CEB1DAF90F50026673D /* ALiTopToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CE61DAF90F50026673D /* ALiTopToolView.m */; };
 		EB3F5CEC1DAF90F50026673D /* ArtAdviseOperationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3F5CE81DAF90F50026673D /* ArtAdviseOperationView.m */; };
+		EBE87D421EA31F7F000B3524 /* ArtMicroVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE87D411EA31F7F000B3524 /* ArtMicroVideoViewController.m */; };
+		EBE87D481EA31FB4000B3524 /* ArtAnimationRecordView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE87D451EA31FB4000B3524 /* ArtAnimationRecordView.m */; };
+		EBE87D491EA31FB4000B3524 /* ArtPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE87D471EA31FB4000B3524 /* ArtPlayerView.m */; };
+		EBE87D4C1EA3204B000B3524 /* ArtVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE87D4B1EA3204B000B3524 /* ArtVideoModel.m */; };
+		EBE87D4F1EA32264000B3524 /* ArtVideoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE87D4E1EA32264000B3524 /* ArtVideoUtil.m */; };
+		EBE87D521EA3233E000B3524 /* NSString+ALi.m in Sources */ = {isa = PBXBuildFile; fileRef = EBE87D511EA3233E000B3524 /* NSString+ALi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7B6E25DC0A3B2D3AA2C8107B /* Pods-ALiVideoRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALiVideoRecorder.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALiVideoRecorder/Pods-ALiVideoRecorder.release.xcconfig"; sourceTree = "<group>"; };
-		B7754A68DC790476A2AE3396 /* Pods-ALiVideoRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALiVideoRecorder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ALiVideoRecorder/Pods-ALiVideoRecorder.debug.xcconfig"; sourceTree = "<group>"; };
-		E99070EF0BD08B0BBA800768 /* libPods-ALiVideoRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ALiVideoRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B162AB865F55833B1FEC8B0 /* Pods-ALiVideoRecorder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALiVideoRecorder.release.xcconfig"; path = "Pods/Target Support Files/Pods-ALiVideoRecorder/Pods-ALiVideoRecorder.release.xcconfig"; sourceTree = "<group>"; };
+		4D2365F8BA3FFB0810B16984 /* libPods-ALiVideoRecorder.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ALiVideoRecorder.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C152D90407ADA312732DF93B /* Pods-ALiVideoRecorder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ALiVideoRecorder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ALiVideoRecorder/Pods-ALiVideoRecorder.debug.xcconfig"; sourceTree = "<group>"; };
 		EB092A1F1DADE84900E59F49 /* ALiVideoRecorder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALiVideoRecorder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB092A231DADE84900E59F49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EB092A251DADE84900E59F49 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -75,12 +79,8 @@
 		EB092A5A1DADE91A00E59F49 /* ALiVideoRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiVideoRecorder.m; sourceTree = "<group>"; };
 		EB12B42C1DF5472900ED6F5A /* ALiUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiUtil.h; sourceTree = "<group>"; };
 		EB12B42D1DF5472900ED6F5A /* ALiUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiUtil.m; sourceTree = "<group>"; };
-		EB34DAB71DB7153A0015F9C3 /* ALiShortVideoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiShortVideoController.h; sourceTree = "<group>"; };
-		EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiShortVideoController.m; sourceTree = "<group>"; };
 		EB34DABA1DB71ABD0015F9C3 /* AliShortVideoToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliShortVideoToolBar.h; sourceTree = "<group>"; };
 		EB34DABB1DB71ABD0015F9C3 /* AliShortVideoToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliShortVideoToolBar.m; sourceTree = "<group>"; };
-		EB34DABD1DB723090015F9C3 /* ALiShortVideoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiShortVideoPreviewController.h; sourceTree = "<group>"; };
-		EB34DABE1DB723090015F9C3 /* ALiShortVideoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiShortVideoPreviewController.m; sourceTree = "<group>"; };
 		EB34DAC01DB7240D0015F9C3 /* ALiAssetReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALiAssetReader.h; sourceTree = "<group>"; };
 		EB34DAC11DB7240D0015F9C3 /* ALiAssetReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiAssetReader.m; sourceTree = "<group>"; };
 		EB3F5CB01DAF31F60026673D /* ALiVideoRecorder-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALiVideoRecorder-Prefix.pch"; sourceTree = "<group>"; };
@@ -104,6 +104,18 @@
 		EB3F5CE61DAF90F50026673D /* ALiTopToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALiTopToolView.m; sourceTree = "<group>"; };
 		EB3F5CE71DAF90F50026673D /* ArtAdviseOperationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtAdviseOperationView.h; sourceTree = "<group>"; };
 		EB3F5CE81DAF90F50026673D /* ArtAdviseOperationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtAdviseOperationView.m; sourceTree = "<group>"; };
+		EBE87D401EA31F7F000B3524 /* ArtMicroVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtMicroVideoViewController.h; sourceTree = "<group>"; };
+		EBE87D411EA31F7F000B3524 /* ArtMicroVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtMicroVideoViewController.m; sourceTree = "<group>"; };
+		EBE87D441EA31FB4000B3524 /* ArtAnimationRecordView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtAnimationRecordView.h; sourceTree = "<group>"; };
+		EBE87D451EA31FB4000B3524 /* ArtAnimationRecordView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtAnimationRecordView.m; sourceTree = "<group>"; };
+		EBE87D461EA31FB4000B3524 /* ArtPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtPlayerView.h; sourceTree = "<group>"; };
+		EBE87D471EA31FB4000B3524 /* ArtPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtPlayerView.m; sourceTree = "<group>"; };
+		EBE87D4A1EA3204B000B3524 /* ArtVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtVideoModel.h; sourceTree = "<group>"; };
+		EBE87D4B1EA3204B000B3524 /* ArtVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtVideoModel.m; sourceTree = "<group>"; };
+		EBE87D4D1EA32264000B3524 /* ArtVideoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtVideoUtil.h; sourceTree = "<group>"; };
+		EBE87D4E1EA32264000B3524 /* ArtVideoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtVideoUtil.m; sourceTree = "<group>"; };
+		EBE87D501EA3233E000B3524 /* NSString+ALi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ALi.h"; sourceTree = "<group>"; };
+		EBE87D511EA3233E000B3524 /* NSString+ALi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ALi.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				510060CF833D10C079E2EFE0 /* libPods-ALiVideoRecorder.a in Frameworks */,
+				85A41670CF3BF7B84CA730EC /* libPods-ALiVideoRecorder.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,19 +144,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3CD28A759D73B42760D5F03D /* Frameworks */ = {
+		2D9E9359E3A141171E656F53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E99070EF0BD08B0BBA800768 /* libPods-ALiVideoRecorder.a */,
+				4D2365F8BA3FFB0810B16984 /* libPods-ALiVideoRecorder.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3DF7A066D062A06F3B2CCE87 /* Pods */ = {
+		7D5B6B6BFB097B9162704493 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B7754A68DC790476A2AE3396 /* Pods-ALiVideoRecorder.debug.xcconfig */,
-				7B6E25DC0A3B2D3AA2C8107B /* Pods-ALiVideoRecorder.release.xcconfig */,
+				C152D90407ADA312732DF93B /* Pods-ALiVideoRecorder.debug.xcconfig */,
+				2B162AB865F55833B1FEC8B0 /* Pods-ALiVideoRecorder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -156,8 +168,8 @@
 				EB092A3B1DADE84900E59F49 /* ALiVideoRecorderTests */,
 				EB092A461DADE84900E59F49 /* ALiVideoRecorderUITests */,
 				EB092A201DADE84900E59F49 /* Products */,
-				3DF7A066D062A06F3B2CCE87 /* Pods */,
-				3CD28A759D73B42760D5F03D /* Frameworks */,
+				7D5B6B6BFB097B9162704493 /* Pods */,
+				2D9E9359E3A141171E656F53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +246,10 @@
 			children = (
 				EB12B42C1DF5472900ED6F5A /* ALiUtil.h */,
 				EB12B42D1DF5472900ED6F5A /* ALiUtil.m */,
+				EBE87D4D1EA32264000B3524 /* ArtVideoUtil.h */,
+				EBE87D4E1EA32264000B3524 /* ArtVideoUtil.m */,
+				EBE87D501EA3233E000B3524 /* NSString+ALi.h */,
+				EBE87D511EA3233E000B3524 /* NSString+ALi.m */,
 			);
 			path = ALiUtil;
 			sourceTree = "<group>";
@@ -253,10 +269,11 @@
 				EB3F5CD71DAF90EF0026673D /* PortaitRecorderViewController.m */,
 				EB3F5CD81DAF90EF0026673D /* ViewController.h */,
 				EB3F5CD91DAF90EF0026673D /* ViewController.m */,
-				EB34DAB71DB7153A0015F9C3 /* ALiShortVideoController.h */,
-				EB34DAB81DB7153A0015F9C3 /* ALiShortVideoController.m */,
-				EB34DABD1DB723090015F9C3 /* ALiShortVideoPreviewController.h */,
-				EB34DABE1DB723090015F9C3 /* ALiShortVideoPreviewController.m */,
+				EBE87D401EA31F7F000B3524 /* ArtMicroVideoViewController.h */,
+				EBE87D411EA31F7F000B3524 /* ArtMicroVideoViewController.m */,
+				EBE87D431EA31FB4000B3524 /* view */,
+				EBE87D4A1EA3204B000B3524 /* ArtVideoModel.h */,
+				EBE87D4B1EA3204B000B3524 /* ArtVideoModel.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -278,6 +295,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		EBE87D431EA31FB4000B3524 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				EBE87D441EA31FB4000B3524 /* ArtAnimationRecordView.h */,
+				EBE87D451EA31FB4000B3524 /* ArtAnimationRecordView.m */,
+				EBE87D461EA31FB4000B3524 /* ArtPlayerView.h */,
+				EBE87D471EA31FB4000B3524 /* ArtPlayerView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,12 +313,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EB092A4C1DADE84900E59F49 /* Build configuration list for PBXNativeTarget "ALiVideoRecorder" */;
 			buildPhases = (
-				098A61A3F646AF324ED014D4 /* Check Pods Manifest.lock */,
+				9581A4D7B2EE3017AFDFEE0F /* [CP] Check Pods Manifest.lock */,
 				EB092A1B1DADE84900E59F49 /* Sources */,
 				EB092A1C1DADE84900E59F49 /* Frameworks */,
 				EB092A1D1DADE84900E59F49 /* Resources */,
-				967EBC918B8FAB1126C43BB6 /* Embed Pods Frameworks */,
-				7D7B8C1F67ED1A77978D1952 /* Copy Pods Resources */,
+				236DEF836F7AFC7D9E3993D3 /* [CP] Embed Pods Frameworks */,
+				F82B0855097AF4CC7F612A09 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -413,49 +441,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		098A61A3F646AF324ED014D4 /* Check Pods Manifest.lock */ = {
+		236DEF836F7AFC7D9E3993D3 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7D7B8C1F67ED1A77978D1952 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ALiVideoRecorder/Pods-ALiVideoRecorder-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		967EBC918B8FAB1126C43BB6 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ALiVideoRecorder/Pods-ALiVideoRecorder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9581A4D7B2EE3017AFDFEE0F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F82B0855097AF4CC7F612A09 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ALiVideoRecorder/Pods-ALiVideoRecorder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -467,21 +495,25 @@
 			files = (
 				EB34DAC21DB7240D0015F9C3 /* ALiAssetReader.m in Sources */,
 				EB12B42E1DF5472900ED6F5A /* ALiUtil.m in Sources */,
+				EBE87D521EA3233E000B3524 /* NSString+ALi.m in Sources */,
+				EBE87D4C1EA3204B000B3524 /* ArtVideoModel.m in Sources */,
 				EB092A271DADE84900E59F49 /* AppDelegate.m in Sources */,
+				EBE87D491EA31FB4000B3524 /* ArtPlayerView.m in Sources */,
 				EB34DABC1DB71ABD0015F9C3 /* AliShortVideoToolBar.m in Sources */,
 				EB092A5B1DADE91A00E59F49 /* ALiVideoRecorder.m in Sources */,
-				EB34DAB91DB7153A0015F9C3 /* ALiShortVideoController.m in Sources */,
 				EB3F5CDE1DAF90EF0026673D /* PortaitRecorderViewController.m in Sources */,
+				EBE87D421EA31F7F000B3524 /* ArtMicroVideoViewController.m in Sources */,
 				EB3F5CE91DAF90F50026673D /* ALiBottomToolView.m in Sources */,
+				EBE87D481EA31FB4000B3524 /* ArtAnimationRecordView.m in Sources */,
 				EB3F5CEA1DAF90F50026673D /* AliPlayerControlView.m in Sources */,
 				EB092A581DADE8F700E59F49 /* ALiAssetWriter.m in Sources */,
 				EB3F5CEC1DAF90F50026673D /* ArtAdviseOperationView.m in Sources */,
 				EB3F5CDF1DAF90EF0026673D /* ViewController.m in Sources */,
 				EB092A241DADE84900E59F49 /* main.m in Sources */,
-				EB34DABF1DB723090015F9C3 /* ALiShortVideoPreviewController.m in Sources */,
 				EB3F5CEB1DAF90F50026673D /* ALiTopToolView.m in Sources */,
 				EB3F5CDA1DAF90EF0026673D /* ALiNavigationViewController.m in Sources */,
 				EB3F5CDB1DAF90EF0026673D /* ALiPlayViewController.m in Sources */,
+				EBE87D4F1EA32264000B3524 /* ArtVideoUtil.m in Sources */,
 				EB3F5CDD1DAF90EF0026673D /* LandScapeViewController.m in Sources */,
 				EB3F5CDC1DAF90EF0026673D /* ALiViewController.m in Sources */,
 			);
@@ -628,7 +660,7 @@
 		};
 		EB092A4D1DADE84900E59F49 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7754A68DC790476A2AE3396 /* Pods-ALiVideoRecorder.debug.xcconfig */;
+			baseConfigurationReference = C152D90407ADA312732DF93B /* Pods-ALiVideoRecorder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XWNPFKK4U5;
@@ -642,7 +674,7 @@
 		};
 		EB092A4E1DADE84900E59F49 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B6E25DC0A3B2D3AA2C8107B /* Pods-ALiVideoRecorder.release.xcconfig */;
+			baseConfigurationReference = 2B162AB865F55833B1FEC8B0 /* Pods-ALiVideoRecorder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XWNPFKK4U5;

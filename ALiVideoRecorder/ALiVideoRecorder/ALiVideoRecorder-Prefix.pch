@@ -11,6 +11,7 @@
 
 
 #import "Masonry.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 #import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CoreMedia.h>

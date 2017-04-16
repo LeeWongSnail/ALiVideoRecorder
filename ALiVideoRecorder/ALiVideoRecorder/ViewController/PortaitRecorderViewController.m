@@ -385,7 +385,6 @@
 //    NSLog(@"%f",progress * self.recorder.maxVideoDuration);
     [self.topTipView configTimeLabel:progress * self.recorder.maxVideoDuration];
     if ((progress *self.recorder.maxVideoDuration) > 600) {
-        []
     }
 }
 
