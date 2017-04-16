@@ -336,6 +336,10 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
     if ([_videoSession canAddOutput:_videoDataOut]) {
         [_videoSession addOutput:_videoDataOut];
     }
+    AVCaptureConnection *captureConnection = [_videoDataOut connectionWithMediaType:AVMediaTypeVideo];
+    captureConnection.enabled = YES;
+    [captureConnection setVideoOrientation:AVCaptureVideoOrientationPortrait];
+
 }
 
 - (void)addAudioOutput
