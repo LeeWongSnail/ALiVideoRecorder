@@ -424,27 +424,7 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
     int videoWidth = [UIScreen mainScreen].bounds.size.width;
     int videoHeight = [UIScreen mainScreen].bounds.size.height;
     
-//    int videoWidth = [UIScreen mainScreen].bounds.size.width;
-//    int videoHeight = [UIScreen mainScreen].bounds.size.height;
-    /*
-     NSDictionary *videoCleanApertureSettings = @{
-     AVVideoCleanApertureWidthKey:@(videoHeight),
-     AVVideoCleanApertureHeightKey:@(videoWidth),
-     AVVideoCleanApertureHorizontalOffsetKey:@(200),
-     AVVideoCleanApertureVerticalOffsetKey:@(0)
-     };
-     NSDictionary *videoAspectRatioSettings = @{
-     AVVideoPixelAspectRatioHorizontalSpacingKey:@(3),
-     AVVideoPixelAspectRatioVerticalSpacingKey:@(3)
-     };
-     NSDictionary *codecSettings = @{
-     AVVideoAverageBitRateKey:@(960000),
-     AVVideoMaxKeyFrameIntervalKey:@(1),
-     AVVideoProfileLevelKey:AVVideoProfileLevelH264Main30,
-     AVVideoCleanApertureKey: videoCleanApertureSettings,
-     AVVideoPixelAspectRatioKey:videoAspectRatioSettings
-     };
-     */
+
     NSDictionary *outputSettings = @{
                                      AVVideoCodecKey : AVVideoCodecH264,
                                      AVVideoWidthKey : @(videoWidth),
@@ -565,85 +545,6 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
 }
 
 
-////MARK: AVCaptureFileOutputRecordingDelegate
-//- (void)captureOutput:(AVCaptureFileOutput *)captureOutput didFinishRecordingToOutputFileAtURL:(NSURL *)outputFileURL fromConnections:(NSArray *)connections error:(NSError *)error
-//{
-//    if (!_isCancelRecord)
-//    {
-//        NSLog(@"didFinishRecordingToOutputFileAtURL--> %@", _savePath);
-//        
-//        NSString *nsTmpDIr = NSTemporaryDirectory();
-//        NSString *videoPath = [NSString stringWithFormat:@"%@record_video_mp4_%3.f.%@", nsTmpDIr, [NSDate timeIntervalSinceReferenceDate], @"mp4"];
-//        
-//        AVURLAsset *urlAsset = [[AVURLAsset alloc] initWithURL:outputFileURL options:nil];
-//        
-////        [[HUDHelper sharedInstance] syncLoading:@"正在格式转换"];
-//        [self showText:@"正在格式转换"];
-//        
-//        [self convertToMP4:urlAsset videoPath:videoPath succ:^(NSString *path) {
-//            
-//            dispatch_async(dispatch_get_main_queue(), ^{
-////                [[HUDHelper sharedInstance] syncStopLoading];
-//                
-////                [ws.delegate touchUpDone:path];
-////                [self onCancelBtn:_cancelBtn];
-//            });
-//            
-//        } fail:^{
-////            [[HUDHelper sharedInstance] syncStopLoadingMessage:@"格式转换失败"];
-//            [self showErrorText:@"格式转换失败"];
-//        }];
-//    }
-//}
-//
-//- (void)convertToMP4:(AVURLAsset*)avAsset videoPath:(NSString*)videoPath succ:(void(^)(NSString *))succ fail:(void (^)())fail
-//{
-//    NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
-//    
-//    if ([compatiblePresets containsObject:AVAssetExportPresetHighestQuality])
-//    {
-//        
-//        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]initWithAsset:avAsset presetName:AVAssetExportPresetHighestQuality];
-//        
-//        exportSession.outputURL = [NSURL fileURLWithPath:videoPath];
-//        
-//        exportSession.outputFileType = AVFileTypeMPEG4;
-//        
-//        CMTime start = CMTimeMakeWithSeconds(0, avAsset.duration.timescale);
-//        
-//        CMTime duration = avAsset.duration;
-//        
-//        CMTimeRange range = CMTimeRangeMake(start, duration);
-//        
-//        exportSession.timeRange = range;
-//        
-//        [exportSession exportAsynchronouslyWithCompletionHandler:^{
-//            switch ([exportSession status])
-//            {
-//                case AVAssetExportSessionStatusFailed:
-//                    NSLog(@"Export failed: %@", [[exportSession error] localizedDescription]);
-//                    if (fail)
-//                    {
-//                        fail();
-//                    }
-//                    break;
-//                case AVAssetExportSessionStatusCancelled:
-//                    NSLog(@"Export canceled");
-//                    if (fail)
-//                    {
-//                        fail();
-//                    }
-//                    break;
-//                default:
-//                    if (succ)
-//                    {
-//                        succ(videoPath);
-//                    }
-//                    break;
-//            }
-//        }];
-//    }
-//}
 
 //MARK: AVCaptureVideoDataOutputSampleBufferDelegate, AVCaptureAudioDataOutputSampleBufferDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
