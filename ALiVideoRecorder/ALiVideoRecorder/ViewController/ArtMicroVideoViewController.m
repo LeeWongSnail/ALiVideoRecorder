@@ -421,8 +421,8 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
 
 - (void)createWriter:(NSURL *)assetUrl {
     _assetWriter = [AVAssetWriter assetWriterWithURL:assetUrl fileType:AVFileTypeMPEG4 error:nil];
-    int videoWidth = [UIScreen mainScreen].bounds.size.width;
-    int videoHeight = [UIScreen mainScreen].bounds.size.height;
+    CGFloat videoWidth = [self renderSize].width;
+    CGFloat videoHeight = [self renderSize].height;
     
 
     NSDictionary *outputSettings = @{
@@ -675,5 +675,19 @@ AVCaptureAudioDataOutputSampleBufferDelegate>
         [self.view addSubview:_tipLabel];
     }
     return _tipLabel;
+}
+
+- (CGSize)renderSize
+{
+    NSInteger width = SCREEN_W;
+    NSInteger height = SCREEN_H;
+    while (width % 16 > 0) {
+        width += 1.;
+    }
+    
+    while (height % 16 > 0) {
+        height += 1.;
+    }
+    return CGSizeMake(width, height);
 }
 @end
