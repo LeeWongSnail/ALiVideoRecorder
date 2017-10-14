@@ -92,7 +92,7 @@
 //完成视频录制时调用
 - (void)finishWithCompletionHandler:(void (^)(void))handler {
     [self assertVideoWriteNormal];
-    WEAKSELF(weakSelf);
+    __weak typeof(self) weakSelf = self;
     NSLog(@"-----完成视频录制------");
     [self.writer finishWritingWithCompletionHandler:^{
         weakSelf.writer = nil;
