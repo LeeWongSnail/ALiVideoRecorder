@@ -376,7 +376,7 @@
 				TargetAttributes = {
 					EB092A1E1DADE84900E59F49 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = XWNPFKK4U5;
+						DevelopmentTeam = 6JZ7K232MR;
 						ProvisioningStyle = Automatic;
 					};
 					EB092A371DADE84900E59F49 = {
@@ -663,7 +663,7 @@
 			baseConfigurationReference = C152D90407ADA312732DF93B /* Pods-ALiVideoRecorder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XWNPFKK4U5;
+				DEVELOPMENT_TEAM = 6JZ7K232MR;
 				GCC_PREFIX_HEADER = "ALiVideoRecorder/ALiVideoRecorder-Prefix.pch";
 				INFOPLIST_FILE = ALiVideoRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -677,7 +677,7 @@
 			baseConfigurationReference = 2B162AB865F55833B1FEC8B0 /* Pods-ALiVideoRecorder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XWNPFKK4U5;
+				DEVELOPMENT_TEAM = 6JZ7K232MR;
 				GCC_PREFIX_HEADER = "ALiVideoRecorder/ALiVideoRecorder-Prefix.pch";
 				INFOPLIST_FILE = ALiVideoRecorder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
