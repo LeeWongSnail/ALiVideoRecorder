@@ -49,6 +49,11 @@
 后期有时间我会详细整理出一份博客，对视频录制做一个简单的说明，以及在项目中可能遇到的一些特殊的要求。
 
 
+Installation
+
+CocoaPods
+Add pod 'ALiVideoRecorder' to your Podfile.
+Run pod install or pod update.
 
 
 
