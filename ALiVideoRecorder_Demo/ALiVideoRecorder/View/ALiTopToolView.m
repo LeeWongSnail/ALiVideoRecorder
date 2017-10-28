@@ -93,7 +93,7 @@
         [_closeRecording setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
         _closeRecording.tag = 10000 + EALiTipActionTypeClose;
         [_closeRecording addTarget:self action:@selector(eventHandler:) forControlEvents:UIControlEventTouchUpInside];
-        [self.effectView addSubview:_closeRecording];
+        [self.effectView.contentView addSubview:_closeRecording];
     }
     return _closeRecording;
 }
@@ -105,7 +105,7 @@
         [_flashBtn setImage:[UIImage imageNamed:@"flash"] forState:UIControlStateNormal];
         _flashBtn.tag = 10000 + EALiTipActionTypeFlash;
         [_flashBtn addTarget:self action:@selector(eventHandler:) forControlEvents:UIControlEventTouchUpInside];
-        [self.effectView addSubview:_flashBtn];
+        [self.effectView.contentView addSubview:_flashBtn];
     }
     return _flashBtn;
 }

@@ -66,7 +66,7 @@
         [_startBtn addTarget:self action:@selector(eventHandler:) forControlEvents:UIControlEventTouchUpInside];
         [_startBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
         [_startBtn setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
-        [self.effectView addSubview:_startBtn];
+        [self.effectView.contentView addSubview:_startBtn];
     }
     return _startBtn;
 }

@@ -69,7 +69,7 @@
         [_recordBtn setImage:[UIImage imageNamed:@"editor_video_start_selected"] forState:UIControlStateSelected];
         _recordBtn.tag = EALiShortToolActionTypeRecord + 10000;
         [_recordBtn addTarget:self action:@selector(onClickHanlder:) forControlEvents:UIControlEventTouchUpInside];
-        [self.effectView addSubview:_recordBtn];
+        [self.effectView.contentView addSubview:_recordBtn];
     }
     return _recordBtn;
 }
@@ -82,7 +82,7 @@
         [_sendBtn setImage:[UIImage imageNamed:@"send"] forState:UIControlStateSelected];
         _sendBtn.tag = EALiShortToolActionTypeSend + 10000;
         [_sendBtn addTarget:self action:@selector(onClickHanlder:) forControlEvents:UIControlEventTouchUpInside];
-        [self.effectView addSubview:_sendBtn];
+        [self.effectView.contentView addSubview:_sendBtn];
     }
     return _sendBtn;
 }

@@ -128,7 +128,7 @@
         [_switchCamera setBackgroundImage:[UIImage imageNamed:@"switch"] forState:UIControlStateNormal];
         _switchCamera.tag = 10000 + EALiTipActionTypeRecord;
         [_switchCamera addTarget:self action:@selector(actionHandler:) forControlEvents:UIControlEventTouchUpInside];
-        [self.effectView addSubview:_switchCamera];
+        [self.effectView.contentView addSubview:_switchCamera];
     }
     return _switchCamera;
 }
